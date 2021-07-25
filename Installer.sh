@@ -6,11 +6,15 @@ then
   if grep -q '# vogShip v1' "vogship";
   then
     echo -e '\e[90m---'
-    echo -e '\e[97mInstalling the Vogship...'
+    echo -e '\e[97mCleaning Environment...'
     rm -rf ~/.zshrc
+    echo -e '\e[97mPlacing...'
     mv -f vogship ~/.zshrc
+    echo -e '\e[97mVerifying...'
     chmod a+x ~/.zshrc
+    echo -e '\e[97mInstalling the Vogship...'
     source ~/.zshrc
+    echo -e '\e[97mInstallation Complete'
     rm -rf Installer.sh 
   else
     errorPrint

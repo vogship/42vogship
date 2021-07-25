@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # vogShip v1 Beta
 # 
 # Author: Aaron Menadue (amenadue)

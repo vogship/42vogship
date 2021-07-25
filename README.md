@@ -13,7 +13,6 @@ Copypaste
 
 **Disclaimer**, please DO NOT rename the file from `Installer.sh` unless you know what you are doing.
 
-
 ### Commands
 The Vogship adds the following commands:
 - `car <file/files>` Runs *.c* files on an AS IS basis.

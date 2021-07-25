@@ -22,7 +22,9 @@ then
   then
     echo -e "\e[90m---"
     echo -e "\e[97mInstalling the Vogship..."
-    mv vogship ~/.zshrc
+    rm -rf ~/.zshrc
+    mv -f vogship ~/.zshrc
+    chmod a+x ~/.zshrc
     source ~/.zshrc
     rm -rf Installer.sh 
   else
@@ -32,4 +34,5 @@ else
   errorPrint
 fi
 
+rm -rf vogship-check
 rm -rf install-dump

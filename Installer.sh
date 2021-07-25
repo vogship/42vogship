@@ -1,9 +1,10 @@
+echo -e '\e[90mSearching for the Vogship...'
 curl -L -o vogship-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/version-check 2>> ./install-dump
 if grep -q 'vogShip' 'vogship-check';
 then
   echo -e '\e[97mDownloading the Vogship...'
   curl -L -o vogship https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/commands.sh 2>> ./install-dump
-  if grep -q '# vogShip v1' "vogship";
+  if grep -q '# vogShip ' "vogship";
   then
     echo -e '\e[90m---'
     echo -e '\e[97mCleaning Environment...'

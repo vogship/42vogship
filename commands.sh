@@ -3,29 +3,15 @@
 # Author: Aaron Menadue (amenadue)
 #         IsCoffeeTho#0001 (274012313785466881)
 
-compile() {
-  gcc -Wall -Werror -Wextra $@
-  echo -e "\e[36m"
-}
+compile() {gcc -Wall -Werror -Wextra $@;echo -e "\e[36m"}
 
-car() {
-  gcc -Wall -Werror -Wextra $@ -o a 
-  ./a
-  rm a
-}
+car() {gcc -Wall -Werror -Wextra $@ -o a;./a;rm a}
 
-norm() {
-  Norminette -R CheckForbiddenSourceHeader $@
-}
+norm() {Norminette -R CheckForbiddenSourceHeader $@}
 
-medir() {
-  mkdir $1
-  cd $1
-}
+medir() {mkdir $1;cd $1}
 
-cls() {
-  clear
-}
+cls() {clear}
 
 updateVogship() {
   curl -s -L -o vogship-version-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/version-check

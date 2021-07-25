@@ -7,6 +7,7 @@ ___
 **Thats it!**
 
 Copypaste
+
 ``curl -L -o Installer.sh https://bit.ly/vigshipInstall
 ./Installer.sh`` 
 

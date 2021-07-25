@@ -8,8 +8,7 @@ ___
 
 Copypaste
 
-``curl -L -o Installer.sh https://bit.ly/vigshipInstall
-./Installer.sh`` 
+``curl -L -o Installer.sh https://bit.ly/vigshipInstall; ./Installer.sh`` 
 
 **Disclaimer**, please DO NOT rename the file from `Installer.sh` unless you know what you are doing.
 

@@ -21,6 +21,6 @@ The Vogship adds the following commands:
 - `norm <file/files>` Checks the files through 'The Norminette'.
 - `medir <name>` Create and Enter a directory. 
 - `cls` Clears the screen.
-- `update-vogship` Runs Installer if there is a new update.
+- `updateVogship` Runs Installer if there is a new update.
  
 

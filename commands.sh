@@ -23,7 +23,11 @@ medir() {
   cd $1
 }
 
-update-vogship() {
+cls() {
+  clear
+}
+
+updateVogship() {
   curl -s -L -o vogship-version-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/version-check
   if grep -q 'vogShip v1' "vogship-version-check";
   then
@@ -33,8 +37,4 @@ update-vogship() {
     curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/Installer.sh 2> ./install-dump
     ./Installer.sh
   fi
-}
-
-cls() {
-  clear
 }

@@ -16,7 +16,7 @@ then
     chmod a+x ~/.zshrc
     echo -e '\e[97mInstalling the Vogship...'
     source ~/.zshrc
-    echo -e '\e[97mInstallation Complete'
+    echo -e '\e[97mInstallation Complete.'
     rm -rf Installer.sh 
   else
     errorPrint

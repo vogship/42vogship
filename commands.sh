@@ -11,7 +11,7 @@ car() {
   gcc -Wall -Werror -Wextra $@ -o a
   ./a
   rm a
-  }
+}
 
 norm() {
   Norminette -R CheckForbiddenSourceHeader $@

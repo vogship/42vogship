@@ -16,11 +16,11 @@ Copypaste
 
 ### Commands
 The Vogship adds the following commands:
-- `compile [-<gcc parameters>] <file/files>` Compiles *.c* files using gcc. 
 - `car <file/files>` Runs *.c* files on an AS IS basis.
-- `norm <file/files>` Checks the files through 'The Norminette'.
-- `medir <name>` Create and Enter a directory. 
 - `cls` Clears the screen.
+- `compile [-<gcc parameters>] <file/files>` Compiles *.c* files using gcc.
+- `medir <name>` Create and Enter a directory.
+- `norm <file/files>` Checks the files through 'The Norminette'.
 - `updateVogship` Runs Installer if there is a new update.
  
 

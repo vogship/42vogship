@@ -2,7 +2,6 @@
 # 
 # Author: Aaron Menadue (amenadue)
 #         IsCoffeeTho#0001 (274012313785466881)
-#
 
 compile() {
   gcc -Wall -Werror -Wextra $@

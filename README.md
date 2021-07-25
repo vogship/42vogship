@@ -3,8 +3,12 @@ The Vogship allows you to navigate the vogsphere a lot more freely so you can fo
 ___
 ### Installation
 1. Download `curl -L -o Installer.sh https://bit.ly/vigshipInstall`
-2. Install `./Installer.sh` 
+2. Install `./Installer.sh`
 **Thats it!**
+
+Copypaste
+
+``curl -L -o Installer.sh https://bit.ly/vigshipInstall; ./Installer.sh`` 
 
 **Disclaimer**, please DO NOT rename the file from `Installer.sh` unless you know what you are doing.
 

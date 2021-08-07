@@ -5,13 +5,12 @@ ___
 1. Download `curl -L -o Installer.sh https://bit.ly/vogshipInstall`
 2. Verify `chmod a+x Installer.sh`
 3. Install `./Installer.sh`
+4. Apply `source ~/.zshrc`
 **Thats it!**
 
 Copypaste
 
-``curl -L -o Installer.sh https://bit.ly/vogshipInstall;chmod a+x Installer.sh;./Installer.sh`` 
-
-**Disclaimer**, please DO NOT rename the file from `Installer.sh` unless you know what you are doing.
+``curl -L -o Installer.sh https://bit.ly/vogshipInstall;chmod a+x Installer.sh;./Installer.sh;source ~/.zshrc`` 
 
 ### Commands
 The Vogship adds the following commands:

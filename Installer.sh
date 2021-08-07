@@ -17,7 +17,7 @@ then
     echo -e '\e[97mInstalling the Vogship...'
     source ~/.zshrc
     echo -e '\e[97mInstallation Complete.'
-    rm -rf Installer.sh 
+    rm -rf $0
   else
     errorPrint
   fi
@@ -27,7 +27,7 @@ fi
 rm -rf vogship-check
 rm -rf install-dump
 errorPrint() {
-  cat vogShip >> ./install-dump
+  mv vogShip install-dump
   rm vogship
   cp install-dump download-err.log
   echo -e '\e[90m---'

@@ -21,5 +21,3 @@ The Vogship adds the following commands:
 - `medir <name>` Create and Enter a directory.
 - `norm <file/files>` Checks the files through 'The Norminette'.
 - `updateVogship` Runs Installer if there is a new update.
- 
-

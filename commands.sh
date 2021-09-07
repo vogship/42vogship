@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# vogShip v1 Beta
+# vogShip v1.1 Beta
 #
 # Author: Aaron Menadue (amenadue)
 #         IsCoffeeTho#0001 (274012313785466881)

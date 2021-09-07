@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 echo -e '\e[90mSearching for the Vogship...'
 curl -L -o vogship-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/version-check
 if grep -q 'vogShip' 'vogship-check';
@@ -21,26 +21,24 @@ then
     echo -e '\e[97mInstallation Complete.'
     rm -rf $0
   else
-    errorPrint
+    mv vogShip install-dump
+    rm vogship
+    cp install-dump download-err.log
+    echo -e 'created \e[91mdownload-err.log\e[96m file'
+    echo -e '\e[91mThere is a problem trying to find vogShip'
   fi
 else
-  wget -q --spider http://google.com
+  curl -s -L http://google.com
   if [ $? -eq 0 ]; then
-      echo -e '\e[91mThere is a problem trying to find vogShip'
-      errorprint
+      mv vogShip install-dump
+      rm vogship
+      cp install-dump download-err.log
+      echo -e 'created \e[91mdownload-err.log\e[96m file'
+      echo -e '\e[91mThere is a problem trying to find vogShip,'
+      echo -e '\e[91mWatchout for firewalls or proxies.'
   else
       echo -e '\e[91mCannot connect to the Internet'
   fi
 fi
 rm -rf vogship-check
 rm -rf install-dump
-errorPrint() {
-  mv vogShip install-dump
-  rm vogship
-  cp install-dump download-err.log
-  echo -e '\e[90m---'
-  echo -e '\e[96mIf problems persist, post an issue on the github repo.'
-  echo -e '\e[96mJust remember to post your \e[91mdownload-err.log\e[96m file'
-  echo -e '\e[96mfound in this Directory.\e[0m'
-  echo -e '\e[37m(\e[94mhttps://github.com/IsCoffeeTho/42vogship/issues/new\e[37m)'
-}

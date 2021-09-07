@@ -2,15 +2,19 @@
 The Vogship allows you to navigate the vogsphere a lot more freely so you can focus on making and helping easily.
 ___
 ### Installation
+
+**Dislaimer:**
+The Installation process overwrites the ``~/.bashrc`` file. proceed with caution
+
+Command:
+``curl -L -o Installer.sh https://bit.ly/vogshipInstall;chmod a+x Installer.sh;./Installer.sh;source ~/.bashrc`` 
+
+Step by step:
 1. Download `curl -L -o Installer.sh https://bit.ly/vogshipInstall`
 2. Verify `chmod a+x Installer.sh`
 3. Install `./Installer.sh`
-4. Apply `source ~/.zshrc`
+4. Apply `source ~/.bashrc`
 **Thats it!**
-
-Copypaste
-
-``curl -L -o Installer.sh https://bit.ly/vogshipInstall;chmod a+x Installer.sh;./Installer.sh;source ~/.zshrc`` 
 
 ### Commands
 The Vogship adds the following commands:

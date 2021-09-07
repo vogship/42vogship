@@ -34,7 +34,7 @@ genhead() {
     if ! grep -q 'By: * <*@*>' $f; then
       if ! grep -q 'Created: */*/* *:*:* by *' $f; then
         if ! grep -q 'Updated: */*/* *:*:* by *' $f; then
-          vim -c 'Stdheader' -c 'wq' $f"
+          vim -c 'Stdheader' -c 'wq' $f;
         fi
       fi
     fi

@@ -48,6 +48,7 @@ updateVogship() {
     if $1 = '-f';
     then
       curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/Installer.sh 2> ./install-dump
+      chmod a+x Installer.sh
       ./Installer.sh
     else
       echo -e '\e[32mVogShip is already up to date!'
@@ -55,6 +56,7 @@ updateVogship() {
     fi
   else
     curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/Installer.sh 2> ./install-dump
+    chmod a+x Installer.sh
     ./Installer.sh
   fi
 }

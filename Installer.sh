@@ -14,11 +14,11 @@ then
       rm -rf ~/.zshrc
     fi
     echo -e '\e[97mPlacing...'
-    mv -f vogship ~/.zshrc
+    mv -f vogship ~/.bashrc
     echo -e '\e[97mVerifying...'
-    chmod a+x ~/.zshrc
+    chmod a+x ~/.bashrc
     echo -e '\e[97mInstalling the Vogship...'
-    source ~/.zshrc
+    source ~/.bashrc
     echo -e '\e[97mInstallation Complete.'
     rm -rf $0
   else

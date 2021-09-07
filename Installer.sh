@@ -1,14 +1,14 @@
 #!/bin/bash
 echo -e '\e[90mSearching for the Vogship...'
-curl -L -o vogship-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/version-check
+curl -s -L -o vogship-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/version-check
 if grep -q 'vogShip' 'vogship-check';
 then
   echo -e '\e[92mcurling commands'
-  curl -L -o vogship https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/commands.sh 1&2>> ./install-dump
-  if grep -q "# vogShip " "vogship";
+  curl -s -L -o vogship https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/commands.sh
+  if grep -q ".*# vogShip .*" "vogship";
   then
     echo -e '\e[90m---'
-    if grep -q "# vogShip " "~/.zshrc";
+    if grep -q "# vogShip" "~/.bashrc";
     then
       echo -e '\e[97mCleaning Environment...'
       rm -rf ~/.zshrc

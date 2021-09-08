@@ -18,10 +18,11 @@ Step by step:
 
 ### Commands
 The Vogship adds the following commands:
-- `car <file/files>` Runs *.c* files on an AS IS basis.
-- `cls` Clears the screen.
+- `car <file/files>` compiles, runs, and returns. perfect for slight debugging.
+- `cls` Clears the screen \[Eqv. `clear`\].
 - `compile [-<gcc parameters>] <file/files>` Compiles *.c* files using gcc.
-- `genhead <files>` This implements the :Stdheader into any files specified
+- `devogr <lang> <file/files>` ***Coming Soon*** Simple Debugger.
+- `genhead <files>` This implements the :Stdheader into any files specified without duplicates.
 - `medir <name>` Create and Enter a directory.
 - `norm <file/files>` Checks the files through 'The Norminette'.
 - `updateVogship` Runs Installer if there is a new update.

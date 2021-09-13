@@ -6,6 +6,6 @@
 - Tomas Turner (Contribution and Debugger)
   - tturner
   - TomT#1016
-- Byron Hawksmith (Code Verifier)
+- Byron Hawksmith (Code Debugger)
   - bhawksmi
   - Titan#4990

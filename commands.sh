@@ -11,7 +11,7 @@ vogship() {
 		if grep -qoE '[v]' <<< $flags; then
 			# Print Version
 			echo -e "\e[92mVersion v1.2.1 \e[97m(\e[92mBeta\e[97m)\e[0m"
-		else if grep -qoE '[u]' <<< $flags; then
+		elif grep -qoE '[u]' <<< $flags; then
 			# Update VogShip
 			if grep -qoE '[f]' <<< $flags; then
 				curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/Installer.sh 2> ./install-dump
@@ -19,8 +19,7 @@ vogship() {
 				./Installer.sh
 			else
 				curl -s -L -o vogship-version-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/version-check
-				if grep -q 'vogShip v1.2.1 ' "vogship-version-check";
-				then
+				if grep -q "vogShip v1.2.1 " "vogship-version-check"; then
 					echo -e "\e[32mVogShip is already up to date!\e[0m"
 					vogship -v
 				else
@@ -57,7 +56,18 @@ car() {
 }
 
 norm() {
-	Norminette -R CheckForbiddenSourceHeader $@
+	if [ -z "$1" ]; then
+		norm * 
+	else
+		for f in $@; do
+			if grep -qoE '(.*\.c)' <<< $f; then
+				Norminette -R CheckForbiddenSourceHeader $f
+			fi
+			if grep -qoE '(.*\.h)' <<< $f; then
+				Norminette -R CheckDefine $f
+			fi
+		done
+	fi
 }
 
 medir() {
@@ -70,13 +80,17 @@ cls() {
 }
 
 genhead() {
-	for f in $@;do
- 		if ! grep -q 'By: * <*>' $f; then
-			if ! grep -q 'Created: */*/* *:*:* by *' $f; then
-				if ! grep -q 'Updated: */*/* *:*:* by *' $f; then
-					vim -c 'Stdheader' -c 'wq' $f;
+	if [ -z "$1" ]; then
+		genhead *
+	else
+		for f in $@; do
+			if ! grep -Eq "(By: .* <.*>)" $f; then
+				if ! grep -Eq "(Created: .*/.*/.* .*:.*:.* by .*)" $f; then
+					if ! grep -Eq "(Updated: .*/.*/.* .*:.*:.* by .*)" $f; then
+						vim -c 'Stdheader' -c 'wq' $f;
+					fi
 				fi
 			fi
-		fi
-	done
+		done
+	fi
 }

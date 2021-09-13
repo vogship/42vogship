@@ -24,8 +24,8 @@ then
     mv vogShip install-dump
     rm vogship
     cp install-dump download-err.log
-    echo -e '\e[96mCreated \e[91mdownload-err.log\e[96m file\e[0m"
-    echo -e '\e[91mThere is a problem trying to find vogShip\e[0m"
+    echo -e "\e[96mCreated \e[91mdownload-err.log\e[96m file\e[0m"
+    echo -e "\e[91mThere is a problem trying to find vogShip\e[0m"
   fi
 else
   echo -e "\e[91mCannot connect to the Internet\e[0m"

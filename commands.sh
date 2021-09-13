@@ -51,7 +51,7 @@ cls() {
 
 genhead() {
 	for f in $@;do
- 		if ! grep -q 'By: * <*@*>' $f; then
+ 		if ! grep -q 'By: * <*>' $f; then
 			if ! grep -q 'Created: */*/* *:*:* by *' $f; then
 				if ! grep -q 'Updated: */*/* *:*:* by *' $f; then
 					vim -c 'Stdheader' -c 'wq' $f;

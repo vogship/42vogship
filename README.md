@@ -27,7 +27,7 @@ The Vogship adds the following commands:
 - `vogship <flags>` Main command with limited features.
 
 **Legacy Commands**
-- `updateVogship` ___v1.2.0___ Runs Installer if there is a new update. (This will be handled in the vogship command with the -u flag and -f to force update)
+- `updateVogship` ___v1.2.0___ Runs Installer if there is a new update. eqv `vogship -u`
 
 ***Coming Soon***
 - `devogr <lang> <file/files>` Simple Debugger. ___Implementation Date UNKNOWN___.

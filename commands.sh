@@ -11,6 +11,7 @@ vogship() {
 		if grep -qoE '[v]' <<< $flags; then
 			# Print Version
 			echo -e "\e[92mVersion v1.2.1 \e[97m(\e[92mBeta\e[97m)\e[0m"
+			echo -r "\e[40mPatchVer1132"
 		elif grep -qoE '[u]' <<< $flags; then
 			# Update VogShip
 			if grep -qoE '[f]' <<< $flags; then
@@ -19,7 +20,7 @@ vogship() {
 				./Installer.sh
 			else
 				curl -s -L -o vogship-version-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/version-check
-				if grep -q "vogShip v1.2.1 " "vogship-version-check"; then
+				if grep -q "vogShip v1.2.1 (BETA) Patch1132" "vogship-version-check"; then
 					echo -e "\e[32mVogShip irs already up to date!\e[0m"
 					vogship -v
 				else

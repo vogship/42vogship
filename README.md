@@ -24,8 +24,10 @@ The Vogship adds the following commands:
 - `genhead <files>` This implements the :Stdheader into any files specified without duplicates.
 - `medir <name>` Create and Enter a directory.
 - `norm <file/files>` Checks the files through 'The Norminette'.
-- `updateVogship` Runs Installer if there is a new update.
 - `vogship <flags>` Main command with limited features.
+
+**Legacy Commands**
+- `updateVogship` Runs Installer if there is a new update. (This will be handled in the vogship command with the -u flag and -f to force update)
 
 ***Coming Soon***
 - `devogr <lang> <file/files>` Simple Debugger.

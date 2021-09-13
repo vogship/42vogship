@@ -19,7 +19,6 @@ then
     echo -e "\e[97mInstalling the Vogship...\e[0m"
     source ~/.bashrc
     echo -e "\e[97mInstallation Complete.\e[0m"
-    rm -rf $0
   else
     mv vogShip install-dump
     rm vogship
@@ -32,3 +31,4 @@ else
 fi
 rm -rf vogship-check
 rm -rf install-dump
+rm -rf $0

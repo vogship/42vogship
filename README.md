@@ -1,4 +1,4 @@
-# The Vogship v1.2.0
+# The Vogship v1.2.1
 The Vogship allows you to navigate the vogsphere a lot more freely so you can focus on making and helping easily.
 ___
 ### Installation

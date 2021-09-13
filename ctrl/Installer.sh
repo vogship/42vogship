@@ -1,9 +1,9 @@
 #!/bin/bash
 echo -e "\e[90mSearching for the Vogship...\e[0m"
-curl -s -L -o vogship-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/version-check
+curl -s -L -o vogship-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/version-check
 if grep -q 'vogShip' 'vogship-check';
 then
-  curl -s -L -o vogship https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/commands.sh
+  curl -s -L -o vogship https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/src/commands.sh
   if grep -q ".*# vogShip .*" "vogship";
   then
     echo -e "\e[90m---\[0m"

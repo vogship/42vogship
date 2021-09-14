@@ -2,7 +2,7 @@
 echo -e "Searching for the Vogship..."
 curl -s -L -o vogship-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/version-check
 if grep -q 'vogShip' 'vogship-check'; then
-  curl -s -L -o vogship https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/src/commands.sh
+  curl -s -L -o vogship https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/src/vogship.sh
   if grep -q ".*# vogShip .*" "vogship"; then
     echo -e "---"
     if [ -f "~/.bashrc" ]; then

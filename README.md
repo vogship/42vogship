@@ -1,10 +1,8 @@
 # The Vogship v1.2.1
 The Vogship allows you to navigate the vogsphere a lot more freely so you can focus on making and helping easily.
-___
-### Installation
-
-**Dislaimer:**
+## Disclaimer
 The Installation process overwrites the ``~/.bashrc`` file. proceed with caution
+### Installation
 
 Command:
 ``curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/Installer.sh;chmod a+x Installer.sh;./Installer.sh`` 

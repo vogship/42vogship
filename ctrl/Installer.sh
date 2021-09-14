@@ -1,12 +1,12 @@
 #!/bin/bash
-echo -e "\e[90mSearching for the Vogship...\e[0m"
+echo -e "Searching for the Vogship..."
 curl -s -L -o vogship-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/version-check
 if grep -q 'vogShip' 'vogship-check'; then
   curl -s -L -o vogship https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/src/commands.sh
   if grep -q ".*# vogShip .*" "vogship"; then
-    echo -e "\e[90m---\[0m"
+    echo -e "---"
     if [ -f "~/.bashrc" ]; then
-      echo -e "\e[97mCleaning Environment...\e[0m"
+      echo -e "Cleaning Environment..."
       rm -rf ~/.bashrc
     fi
     echo -e "Placing..."
@@ -24,7 +24,7 @@ if grep -q 'vogShip' 'vogship-check'; then
     echo -e "There is a problem trying to find vogShip"
   fi
 else
-  echo -e "\e[91mCannot connect to the Internet\e[0m"
+  echo -e "Cannot connect to the Internet"
 fi
 rm -rf vogship-check
 rm -rf install-dump

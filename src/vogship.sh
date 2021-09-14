@@ -11,7 +11,7 @@ vogship() {
         if grep -qoE '[v]' <<< $flags; then
             # Print Version
             echo -e "\e[92mVersion v1.2.1 \e[97m(\e[92mBeta\e[97m)\e[0m"
-            echo -e "\e[40mPatchVer1132"
+            echo -e "\e[90mPatchVer1132\e[0m"
         elif grep -qoE '[h]' <<< $flags; then
             echo -e "\e[92mCommands Available:\e[0m"
             echo -e "    \e[96m\e[48;5;235m car \e[94m<files> \e[0m Compiles, Runs, and Returns."

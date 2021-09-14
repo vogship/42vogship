@@ -28,11 +28,11 @@ The Vogship adds the following commands:
 - `compile [-<gcc parameters>] <file/files>` Compiles *.c* files using gcc.
 - `genhead <files>` This implements the :Stdheader into any files specified without duplicates.
 - `medir <name>` Create and Enter a directory.
-- `norm <file/files>` Checks the files through 'The Norminette'.
+- `norm <file/files>` Checks the files through 'The Norminette' both file types run with specific flags.
 - `vogship <flags>` Main command with limited features.
 
 **Legacy Commands**
-- `updateVogship` ___v1.2.0___ Runs Installer if there is a new update. eqv `vogship -u`
+- `updateVogship` ___v1.2.0___ Runs Installer if there is a new update. \[Eqv `vogship -u`\]
 
 ***Coming Soon***
 - `devogr <lang> <file/files>` Simple Debugger. ___Implementation Date UNKNOWN___.

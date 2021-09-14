@@ -34,7 +34,7 @@ vogship() {
 	else
 		echo -e "\e[94m     / /  |/| |\e[0m"
 		echo -e "\e[94m   / /__.  / / \e[0m"
-		echo -e "\e[94m /____  | | |/|  \e[104m|\e[49m  Vogship\e[0m"
+		echo -e "\e[94m /____  | | |/|  █  Vogship\e[0m"
 		echo -e "\e[94m      | |\e[0m"
 		echo ""
 		echo -e "\e[92mMade by Developers for Developers\e[0m"

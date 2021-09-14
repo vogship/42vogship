@@ -5,6 +5,12 @@ if grep -q 'vogShip' 'vogship-check'; then
   curl -s -L -o vogship https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/src/vogship.sh
   if grep -q ".*# vogShip .*" "vogship"; then
     echo -e "---"
+    if [ -f ~/.zshrc ]; then
+      echo -e "adding zsh requirements..."
+      if ! grep -qE "((source)|(\.) (.*\.bashrc))" ~/.zshrc; then
+        echo "source ~/.bashrc" >> ~/.zshrc
+      fi
+    fi
     if [ -f "~/.bashrc" ]; then
       echo -e "Cleaning Environment..."
       rm -rf ~/.bashrc

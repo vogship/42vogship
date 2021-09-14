@@ -13,6 +13,7 @@ The Installation process overwrites the ``~/.bashrc`` file. proceed with caution
 ### Installation
 
 Command:
+
 ``curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/Installer.sh;chmod a+x Installer.sh;./Installer.sh;source ~/.bashrc`` 
 
 Step by step:

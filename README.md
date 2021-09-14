@@ -13,12 +13,13 @@ The Installation process overwrites the ``~/.bashrc`` file. proceed with caution
 ### Installation
 
 Command:
-``curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/Installer.sh;chmod a+x Installer.sh;./Installer.sh`` 
+``curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/Installer.sh;chmod a+x Installer.sh;./Installer.sh;source ~/.bashrc`` 
 
 Step by step:
 1. Download `curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/Installer.sh`
 2. Allow `chmod a+x Installer.sh`
 3. Install `./Installer.sh`
+4. Run `source ~/.bashrc`
 **Thats it!**
 
 ### Commands

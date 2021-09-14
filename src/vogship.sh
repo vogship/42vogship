@@ -42,7 +42,7 @@ vogship() {
         fi
     else
         echo -e "\e[94m     / /  |/| |\e[0m"
-        echo -e "\e[94m   / /__.  / / \e[0m"
+        echo -e "\e[94m   / /__   / / \e[0m"
         echo -e "\e[94m /____  | | |/|  █  Vogship\e[0m"
         echo -e "\e[94m      | |\e[0m"
         echo ""

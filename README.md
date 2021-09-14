@@ -3,7 +3,7 @@ The Vogship allows you to navigate the vogsphere a lot more freely so you can fo
 
 ```
      / /  |/| |
-   / /__.  / /
+   / /__   / /
  /____  | | |/|  █  Vogship
       | |                      Made By Developers for Developers
 ```

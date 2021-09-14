@@ -30,7 +30,7 @@ vogship() {
             else
                 curl -s -L -o vogship-version-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/version-check
                 if grep -q "vogShip v1.2.1 (BETA) Patch1132" "vogship-version-check"; then
-                    echo -e "\e[32mVogShip irs already up to date!\e[0m"
+                    echo -e "\e[32mVogShip is already up to date!\e[0m"
                     vogship -v
                 else
                     curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/Installer.sh 2> ./install-dump

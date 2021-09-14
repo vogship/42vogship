@@ -1,10 +1,12 @@
 # The Vogship v1.2.1
 The Vogship allows you to navigate the vogsphere a lot more freely so you can focus on making and helping easily.
 
-```     / /  |/| |
+```
+     / /  |/| |
    / /__.  / /
  /____  | | |/|  █  Vogship
-      | |```
+      | |                      Made By Developers for Developers
+```
 
 ## Disclaimer
 The Installation process overwrites the ``~/.bashrc`` file. proceed with caution

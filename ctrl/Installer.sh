@@ -9,13 +9,11 @@ if grep -q 'vogShip' 'vogship-check'; then
       echo -e "Cleaning Environment..."
       rm -rf ~/.bashrc
     fi
-    echo -e "Placing..."
     mv -f vogship ~/.bashrc
-    echo -e "Verifying..."
     chmod a+x ~/.bashrc
-    echo -e "Installing the Vogship..."
-    source ~/.bashrc
     echo -e "Installation Complete."
+    echo -e "To finish the install Please run: "
+    echo -e "source ~/.bashrc"
   else
     mv vogShip install-dump
     rm vogship

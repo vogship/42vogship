@@ -11,7 +11,7 @@ vogship() {
 		if grep -qoE '[v]' <<< $flags; then
 			# Print Version
 			echo -e "\e[92mVersion v1.2.1 \e[97m(\e[92mBeta\e[97m)\e[0m"
-			echo -r "\e[40mPatchVer1132"
+			echo -e "\e[40mPatchVer1132"
 		elif grep -qoE '[u]' <<< $flags; then
 			# Update VogShip
 			if grep -qoE '[f]' <<< $flags; then

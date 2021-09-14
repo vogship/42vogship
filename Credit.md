@@ -9,3 +9,9 @@
 - Byron Hawksmith (Code Debugger)
   - bhawksmi
   - Titan#4990
+- Jaymie Gobbett (Code Debugger)
+  - jgobbett
+  - JayJay#2913
+- Pasquale Rossi (Code Debugger)
+  - prossi
+  - Pasquale Rossi#3642

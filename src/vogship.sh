@@ -51,7 +51,9 @@ vogship() {
         echo -e "\e[96mWritten by Aaron Menadue"
         echo -e "\e[96mContributions from:"
         echo -e "\e[96m  Byron Hawksmith"
-        echo -e "\e[96m  Tomas Turner"
+	echo -e "\e[96m  Jaymie Gobbett"
+        echo -e "\e[96m  Pasquale Rossi"
+	echo -e "\e[96m  Tomas Turner"
     fi
 }
 

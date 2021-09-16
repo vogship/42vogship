@@ -7,7 +7,7 @@ if grep -q 'vogShip' 'vogship-check'; then
     echo -e "---"
     if [ -f ~/.zshrc ]; then
       echo -e "adding zsh requirements..."
-      if ! grep -qE "((source)|(\.) (.*\.bashrc))" ~/.zshrc; then
+      if ! grep -qE "((source)|(\.) (.*\.bashrc))" "~/.zshrc"; then
         echo "source ~/.bashrc" >> ~/.zshrc
       fi
     fi

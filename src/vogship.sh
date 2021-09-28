@@ -16,7 +16,7 @@ vogship() {
             echo -e "\e[92mCommands Available:\e[0m"
             echo -e "    \e[96m\e[48;5;235m car \e[94m<files> \e[0m Compiles, Runs, and Returns."
             echo -e "    \e[96m\e[48;5;235m cls \e[0m Clears the screen."
-            echo -e "    \e[96m\e[48;5;235m compile  \e[94mp[<gcc parameters>] <files> \e[0m Compiles anything with \e[97m-Wall -Wextra -Werror\e[0m."
+            echo -e "    \e[96m\e[48;5;235m compile  \e[94m[<gcc parameters>] <files> \e[0m Compiles anything with \e[97m-Wall -Wextra -Werror\e[0m."
             echo -e "    \e[96m\e[48;5;235m genhead \e[94m<files> \e[0m Puts the \e[97m:Stdheader\e[0m in the specified files without duplicates."
             echo -e "    \e[96m\e[48;5;235m medir \e[94m<name> \e[0m Create and Enter a directory."
             echo -e "    \e[96m\e[48;5;235m norm \e[94m<files> \e[0m Runs Norminette on each file with the correct flags for both \e[96m.c\e[0m and \e[96m.o\e[0m files."

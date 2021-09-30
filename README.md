@@ -1,4 +1,4 @@
-# The Vogship v1.2.1
+# The Vogship v1.2.2
 The Vogship allows you to navigate the vogsphere a lot more freely so you can focus on making and helping easily.
 
 ```
@@ -26,6 +26,7 @@ Step by step:
 ### Commands
 The Vogship adds the following commands:
 - `car <file/files>` compiles, runs, and returns. perfect for slight debugging.
+- `clsyc` Cleans up the system trying to clean up temp files that get left behind.
 - `cls` Clears the screen \[Eqv. `clear`\].
 - `compile [-<gcc parameters>] <file/files>` Compiles *.c* files using gcc.
 - `genhead <files>` This implements the :Stdheader into any files specified without duplicates.

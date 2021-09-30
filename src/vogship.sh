@@ -15,8 +15,9 @@ vogship() {
         elif grep -qoE '[h]' <<< $flags; then
             echo -e "\e[92mCommands Available:\e[0m"
             echo -e "    \e[96m\e[48;5;235m car \e[94m<files> \e[0m Compiles, Runs, and Returns."
-            echo -e "    \e[96m\e[48;5;235m cls \e[0m Clears the screen."
-            echo -e "    \e[96m\e[48;5;235m compile  \e[94m[<gcc parameters>] <files> \e[0m Compiles anything with \e[97m-Wall -Wextra -Werror\e[0m."
+            echo -e "    \e[96m\e[48;5;235m clsyc \e[94m<flags> \e[0m Clears up memory leaks to free up space."
+			echo -e "    \e[96m\e[48;5;235m cls \e[0m Clears the screen."
+            echo -e "    \e[96m\e[48;5;235m compile \e[94m[<gcc parameters>] <files> \e[0m Compiles anything with \e[97m-Wall -Wextra -Werror\e[0m."
             echo -e "    \e[96m\e[48;5;235m genhead \e[94m<files> \e[0m Puts the \e[97m:Stdheader\e[0m in the specified files without duplicates."
             echo -e "    \e[96m\e[48;5;235m medir \e[94m<name> \e[0m Create and Enter a directory."
             echo -e "    \e[96m\e[48;5;235m norm \e[94m<files> \e[0m Runs Norminette on each file with the correct flags for both \e[96m.c\e[0m and \e[96m.o\e[0m files."
@@ -29,7 +30,7 @@ vogship() {
                 ./Installer.sh
             else
                 curl -s -L -o vogship-version-check https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/version-check
-                if grep -q "vogShip v1.2.1 (BETA) Patch3373" "vogship-version-check"; then
+                if grep -q "vogShip v1.2.2 (BETA) Patch4589" "vogship-version-check"; then
                     echo -e "\e[32mVogShip is already up to date!\e[0m"
                     rm -rf vogship-version-check
 					vogship -v
@@ -56,6 +57,16 @@ vogship() {
         echo -e "\e[96m  Pasquale Rossi"
 	echo -e "\e[96m  Tomas Turner"
     fi
+}
+
+clsyc() {
+	echo -en "\e[92mBefore Cleanup: "
+	grep -oE "\d+" <<< $(grep -E "/Users/\w+$" <<< $(du -Hk ~ 2> /dev/null))
+	for dir in ~/Library/Caches/*; do
+		rm -rf $dir
+	done
+	echo -en "\e[92mAfter Cleanup: "
+	grep -oE "\d+" <<< $(grep -E "/Users/\w+$" <<< $(du -Hk ~ 2> /dev/null))
 }
 
 compile() {

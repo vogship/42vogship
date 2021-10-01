@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# vogShip v1.2.1 Beta
+# vogShip v1.2.2 Beta
 #
 # Author: Aaron Menadue (amenadue)
 #         IsCoffeeTho#0001 (274012313785466881)
@@ -10,8 +10,8 @@ vogship() {
     if [ -n "$flags" ]; then
         if grep -qoE '[v]' <<< $flags; then
             # Print Version
-            echo -e "\e[92mVersion v1.2.1 \e[97m(\e[92mBeta\e[97m)\e[0m"
-            echo -e "\e[90mPatchVer3373\e[0m"
+            echo -e "\e[92mVersion v1.2.2 \e[97m(\e[92mBeta\e[97m)\e[0m"
+            echo -e "\e[90mPatchVer4589\e[0m"
         elif grep -qoE '[h]' <<< $flags; then
             echo -e "\e[92mCommands Available:\e[0m"
             echo -e "    \e[96m\e[48;5;235m car \e[94m<files> \e[0m Compiles, Runs, and Returns."

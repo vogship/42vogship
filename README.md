@@ -1,4 +1,4 @@
-# The Vogship v1.2.2
+# The Vogship v1.2.3
 The Vogship allows you to navigate the vogsphere a lot more freely so you can focus on making and helping easily.
 
 ```
@@ -22,6 +22,9 @@ Step by step:
 3. Install `./Installer.sh`
 4. Run `source ~/.bashrc`
 **Thats it!**
+
+Updates:
+`vogship -u[f]` in versions v1.2.1 onward you can update vogship using the main vogship command. the `f` flag is to force a reinstallation of the latest update.
 
 ### Commands
 The Vogship adds the following commands:

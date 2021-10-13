@@ -21,7 +21,7 @@ if grep -q 'vogShip' 'vogship-check'; then
 		else
 			echo "source ~/.vogship/vogship.sh" >> ~/.bashrc
 		fi
-		mkdir ~/.vogship 2> /dev/null
+		mkdir ~/.vogship > /dev/null 2> /dev/null
 		mv -f vogship ~/.vogship/vogship.sh
 		chmod a+x ~/.vogship/vogship.sh
 		source ~/.vogship/vogship.sh

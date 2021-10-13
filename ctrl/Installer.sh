@@ -21,18 +21,18 @@ if grep -q 'vogShip' 'vogship-check'; then
 		else
 			echo "source ~/.vogship/vogship.sh" >> ~/.bashrc
 		fi
-		mkdir ~/.vogship 
+		mkdir ~/.vogship 2> /dev/null
 		mv -f vogship ~/.vogship/vogship.sh
 		chmod a+x ~/.vogship/vogship.sh
 		source ~/.vogship/vogship.sh
-		echo "Vogship is ready to lift off."
+		echo "Vogship is almost ready to lift off."
 		echo "Installing man pages."
 		curl -s -L -o ~/.vogship/man.tar https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/src/man.tar
 		tar -xf ~/.vogship/man.tar -C ~/.vogship/
 		rm -rf ~/.vogship/man.tar
 		echo "Installation Complete."
 	else
-		mv vogShip install-dump 1&2> /dev/null
+		mv vogship install-dump 2> /dev/null
 		rm vogship
 		cp install-dump download-err.log
 		echo -e "Created download-err.log file"

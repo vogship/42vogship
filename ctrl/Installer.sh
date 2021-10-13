@@ -21,13 +21,13 @@ if grep -q 'vogShip' 'vogship-check'; then
 		else
 			echo "source ~/.vogship/vogship.sh" >> ~/.bashrc
 		fi
-		mkdir ~/.vogship
+		mkdir ~/.vogship 
 		mv -f vogship ~/.vogship/vogship.sh
 		chmod a+x ~/.vogship/vogship.sh
 		source ~/.vogship/vogship.sh
 		echo -e "Installation Complete."
 	else
-		mv vogShip install-dump
+		mv vogShip install-dump 1&2> /dev/null
 		rm vogship
 		cp install-dump download-err.log
 		echo -e "Created download-err.log file"

@@ -1,4 +1,4 @@
-# The Vogship v1.2.3
+# The Vogship v1.2.4
 The Vogship allows you to navigate the vogsphere a lot more freely so you can focus on making and helping easily.
 
 ```
@@ -8,12 +8,9 @@ The Vogship allows you to navigate the vogsphere a lot more freely so you can fo
       | |                      Made By Developers for Developers
 ```
 
-## Disclaimer
-The Installation process overwrites the ``~/.bashrc`` file. proceed with caution
 ### Installation
 
 Command:
-
 ``curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/Installer.sh;chmod a+x Installer.sh;./Installer.sh;source ~/.bashrc`` 
 
 Step by step:
@@ -24,6 +21,7 @@ Step by step:
 **Thats it!**
 
 Updates:
+`man <vogship command>` now shows a man page with information. (if you want more info on the man pages, feel free to open up an issue with the repo)
 `vogship -u[f]` in versions v1.2.1 onward you can update vogship using the main vogship command. the `f` flag is to force a reinstallation of the latest update.
 
 ### Commands

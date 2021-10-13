@@ -25,7 +25,12 @@ if grep -q 'vogShip' 'vogship-check'; then
 		mv -f vogship ~/.vogship/vogship.sh
 		chmod a+x ~/.vogship/vogship.sh
 		source ~/.vogship/vogship.sh
-		echo -e "Installation Complete."
+		echo "Vogship is ready to lift off."
+		echo "Installing man pages."
+		curl -s -L -o ~/.vogship/man.tar https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/src/man.tar
+		tar -xf ~/.vogship/man.tar -C ~/.vogship/
+		rm -rf ~/.vogship/man.tar
+		echo "Installation Complete."
 	else
 		mv vogShip install-dump 1&2> /dev/null
 		rm vogship

@@ -5,6 +5,8 @@
 # Author: Aaron Menadue (amenadue)
 #         IsCoffeeTho#0001 (274012313785466881)
 
+alias man='man -M ~/.vogship/man:$(manpath)'
+
 vogship() {
     flags=$(grep -o -E '(-\w+)' <<< $@)
     if [ -n "$flags" ]; then

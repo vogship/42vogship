@@ -6,5 +6,5 @@
       | |                      Made By Developers for Developers
 ```
 ## Changelog v1.2.3 Patch7202
-- Bash Compatible
+- Colors are Bash Compatible.
 - Added Changelog (I know, I am sorry)

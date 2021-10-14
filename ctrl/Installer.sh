@@ -24,7 +24,7 @@ if grep -q 'vogShip' 'vogship-check'; then
 		mkdir ~/.vogship > /dev/null 2> /dev/null
 		mv -f vogship ~/.vogship/vogship.sh
 		chmod a-w ~/.vogship/vogship.sh
-		chmod a+rx ~/.vogship/vogship/sh
+		chmod a+rx ~/.vogship/vogship.sh
 		source ~/.bashrc
 		source ~/.zshrc
 		source ~/.vogship/vogship.sh

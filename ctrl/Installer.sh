@@ -31,23 +31,23 @@ if grep -q 'vogShip' 'vogship-check'; then
 		source ~/.bashrc
 		source ~/.zshrc
 		source ~/.vogship/vogship.sh
-		printf "\e[3m\e[97mAlmost\e[0m ready to lift off..."
+		printf "\e[1m\e[3m\e[97mAlmost\e[0m ready to lift off...\n"
 		printf "Downloading Man Archive: " > vogship.log
 		curl -s -L -o ~/.vogship/man.tar https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/src/man.tar > vogship.log 2> vogship.log
 		printf "Decompress Man Archive: " > vogship.log
 		tar -xf ~/.vogship/man.tar -C ~/.vogship/ > vogship.log 2> vogship.log
 		rm -rf ~/.vogship/man.tar
-		printf "Ready to \e[1m\e[92mFly\e[0m Through!"
-		rm -rf ~/.vogship/latest-install.log
-		mv vogship.log ~/.vogship/latest-install.log
+		printf "Vogship is now ready for \e[1m\e[95mflying\e[0m!\n"
 	else
 		rm vogship
-		mv vogship.log download-err.log
 		printf "Generated \e[91mvogship.log\e[0m"
 		printf "There was a problem downloading VogShip, please check connection and try again."
 	fi
 else
 	printf "\e[91mCannot connect to the Internet\e[0m"
+	printf "Connection Issue\n" > vogship.log
 fi
+rm -rf ~/.vogship/latest-install.log
+cp vogship.log latest-install.log
 rm -rf vogship-check
 rm -rf $0

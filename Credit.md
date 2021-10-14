@@ -2,16 +2,24 @@
 - Aaron Menadue (Main Developer)
   - amenadue
   - IsCoffeeTho#0001
-  - iscoffee.learning@gmail.com
+  - [iscoffee.learning@gmail.com](mailto:iscoffee.learning@gmail.com)
 - Tomas Turner (Contribution and Debugger)
   - tturner
   - TomT#1016
-- Byron Hawksmith (Code Debugger)
+  - [tturner@student.42adel.org.au](mailto:tturner@student.42adel.org.au)
+- Byron Hawksmith (QA)
   - bhawksmi
   - Titan#4990
-- Jaymie Gobbett (Code Debugger)
+  - [bhawksmi@student.42adel.org.au](mailto:bhawksmi@student.42adel.org.au)
+- Jaymie Gobbett (QA)
   - jgobbett
   - JayJay#2913
-- Pasquale Rossi (Code Debugger)
+  - [jgobbett@student.42adel.org.au](mailto:bhawksmi@student.42adel.org.au)
+- Pasquale Rossi (QA)
   - prossi
   - Pasquale Rossi#3642
+  - [pasqualerossi919@gmail.com](mailto:pasqualerossi919@gmail.com)
+- Coby J. Morris
+  - cmorris
+  - CJ\_M#8852
+  - [cobym2012@gmail.com](mailto:cobym2012@gmail.com)

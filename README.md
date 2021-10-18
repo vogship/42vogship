@@ -31,6 +31,7 @@ The Vogship adds the following commands:
 - `cls` Clears the screen \[Eqv. `clear`\].
 - `compile [-<gcc parameters>] <file/files>` Compiles *.c* files using gcc.
 - `genhead <files>` This implements the :Stdheader into any files specified without duplicates.
+- `rsthead <files>` This clears all :Stdheaders from any file specified.
 - `medir <name>` Create and Enter a directory.
 - `norm <file/files>` Checks the files through 'The Norminette' both file types run with specific flags.
 - `vogship <flags>` Main command with limited features.

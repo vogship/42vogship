@@ -19,7 +19,7 @@
   - prossi
   - Pasquale Rossi#3642
   - [pasqualerossi919@gmail.com](mailto:pasqualerossi919@gmail.com)
-- Coby J. Morris
+- Coby J. Morris (QA)
   - cmorris
   - CJ\_M#8852
   - [cobym2012@gmail.com](mailto:cobym2012@gmail.com)

@@ -6,7 +6,7 @@
 #    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/08 23:46:33 by amenadue          #+#    #+#              #
-#    Updated: 2022/02/09 17:25:33 by amenadue         ###   ########.fr        #
+#    Updated: 2022/02/09 17:43:52 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ endif
 INCLDS = $(INCLUDES:%=includes/%)
 
 all: install
-#	-@rm -rf .
+	-@rm -rf .
 
 install:
 	-@printf "   /\    \n"

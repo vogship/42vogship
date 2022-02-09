@@ -18,16 +18,14 @@ The Vogship allows you to navigate the vogsphere a lot more freely so you can fo
 ### Installing
 one liner:  
 ```sh
-git clone git@github.com:IsCoffeeTho/42vogship.git;cd 42vogship; make;cd ..; rm -rf 42vogship
+git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship; make all -C /tmp/vogship; rm -rf /tmp/vogship
 ```  
   
 line by line:
 ```sh
-git clone git@github.com:IsCoffeeTho/42vogship.git # Download
-cd 42vogship                                       # then
-make                                               # Compile
-cd ..                                              # and
-rm -rf 42vogship                                   # Remove Installer
+git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship;
+make all -C /tmp/vogship;
+rm -rf /tmp/vogship
 ```
 
 Install location: `~/.vogship/`

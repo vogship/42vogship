@@ -6,17 +6,17 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/09 17:35:31 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/09 18:12:40 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VOGSHIP_H
-# define VOGSHIP_H "v2.0"
+# define VOGSHIP_H "v2.0 Turbo"
 
 # include <string.h>
 # include <stdio.h>
 
-# define VG_VER "v2.0"
+# define VG_VER "v2.0 Turbo"
 # define VG_AUTHOR "Aaron Menadue"
 
 typedef char*	t_str;

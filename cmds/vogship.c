@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/09 07:06:27 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/09 18:20:20 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ const int	g_cmdindex = 7;
 
 int	main(int c, t_str *v)
 {
+	t_str tmp;
 	int	pnl;
 
 	pnl = 1;
@@ -37,11 +38,32 @@ int	main(int c, t_str *v)
 			{
 				if (contains(v[1], 'f'))
 				{
-					printf("\e[91mForcing Update\e[0m");
+					tmp = vg_run("curl -s https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/versionstring -o /tmp/vogshipver; cat /tmp/vogshipver");
+					printf("Updated to %s", tmp);
+					vg_run("git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship; make all -C /tmp/vogship; rm -rf /tmp/vogship");
+					vg_run("rm -rf /tmp/vogshipver");
 				}
 				else
 				{
-					printf("\e[91mChecking for update\e[0m");
+					tmp = vg_run("curl -s https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/versionstring -o /tmp/vogshipver; cat /tmp/vogshipver");
+
+					if (strcmp(tmp, "cat: /tmp/vogshipver: No such file or directory"))
+					{
+						if (strcmp(tmp, VG_VER))
+						{
+							printf("Updated to %s", tmp);
+							vg_run("git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship; make all -C /tmp/vogship; rm -rf /tmp/vogship");
+						}
+						else
+						{
+							printf("Already Up to Date!\n");
+							vg_version();
+							pnl = 0;
+						} 
+					} else {
+						printf("Please check your internet");
+					}
+					vg_run("rm -rf /tmp/vogshipver");
 				}
 			}
 			else

@@ -16,10 +16,21 @@ The Vogship allows you to navigate the vogsphere a lot more freely so you can fo
 - [42header](https://github.com/42Paris/42header "42header vim plugin")
 
 ### Installing
+one liner:  
 ```sh
-git clone git@github.com:IsCoffeeTho/42vogship.git
-make
+git clone git@github.com:IsCoffeeTho/42vogship.git;cd 42vogship; make;cd ..; rm -rf 42vogship
+```  
+  
+line by line:
+```sh
+git clone git@github.com:IsCoffeeTho/42vogship.git # Download
+cd 42vogship                                       # then
+make                                               # Compile
+cd ..                                              # and
+rm -rf 42vogship                                   # Remove Installer
 ```
+
+Install location: `~/.vogship/`
 
 ## Updates
 Updates:
@@ -41,4 +52,4 @@ The Vogship adds the following commands:
 - `updateVogship` ___v1.2.0___ Runs Installer if there is a new update. \[Eqv `vogship -u`\]
 
 ***Coming Soon***
-- `devogr <lang> <file/files>` Simple Debugger. ___Implementation Date UNKNOWN___.
+- `vpm <package name>` Vogship Package Manager ran by students from around the world (hopefully).

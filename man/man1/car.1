@@ -1,0 +1,32 @@
+.TH car 1 "October 13, 2021"
+.LO 1
+.SH NAME
+car \- compiles and runs any c program
+.SH SYNOPSIS
+.B car
+.RB [\-flags]
+.RB [files]
+
+.SH DESCRIPTION
+.B car
+compiles any files given into a program and deletes the file after runtime, making it easier to debug code and see if there is something wrong somewhere.
+
+.SH LOOKOUT
+.B car
+will soon be replaced by
+.BR devogr
+.RB [lang]
+.RB [files]
+which will used for debugging any program with information you might not know you needed.
+
+.SH TIPS
+Create a main.c file seperate from the function file if you are testing. Allows for an easier clean up (Recommended to name the file prog.c).
+
+.SH AUTHOR
+Aaron Menadue <amenadue@student.42adel.org.au> is the Lead Developer of '42 Vogship'.
+
+.SH SEE ALSO
+.BR compile (1),
+.BR norm (1),
+.BR genhead (1),
+.BR vogship (1)

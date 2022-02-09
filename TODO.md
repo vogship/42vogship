@@ -1,7 +1,9 @@
 # To Do List
 - Add devstage.
-- Feed Dinosaurs.
-- Create Dubgger.
-- Pet the doggo.
-- fix the bashrc.
-- fix rsthead and genhead synergy.
+	- Handle dev branches on github.
+- Create Devogr (C Debugger).
+	- Create c based engine,
+	- Extend variables from engine to user.
+- Only put one line to source vogship in bashrc instead of as many as install runs.
+- Fix rsthead and genhead synergy.
+	- Remove the new line put uner the `:Stdheader`.

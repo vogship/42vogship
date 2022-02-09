@@ -1,0 +1,26 @@
+.TH genhead 1 "October 13, 2021"
+.LO 1
+.SH NAME
+genhead \- Loops through files and generates the 
+.B :Stdheader
+for each file.
+
+.SH SYNOPSIS
+.BR genhead
+.RB [file]
+
+.SH DESCRIPTION
+.B genhead
+Looks through all the specified files and generates a header for the files that do not already contain one. It also tries its best to side step
+.B .o
+and
+.B .a
+files.
+
+.SH AUTHOR
+Aaron Menadue <amenadue@student.42adel.org.au> is the Lead Developer of '42 Vogship'.
+
+.SH SEE ALSO
+.BR compile (1),
+.BR norm (1),
+.BR vogship (1)

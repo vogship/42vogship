@@ -1,5 +1,5 @@
-# The Vogship v1.2.5
-The Vogship allows you to navigate the vogsphere a lot more freely so you can focus on making and helping easily.
+# The Vogship v2 Turbo
+The Vogship allows you to navigate the vogsphere a lot more freely so you can focus on making and helping easily. \[NOW IN C!\]
 
 ```
      / /  |/| |
@@ -8,23 +8,24 @@ The Vogship allows you to navigate the vogsphere a lot more freely so you can fo
       | |                      Made By Developers for Developers
 ```
 
-### Installation
+## Installation
 
-Command:
-``curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/Installer.sh;chmod a+x Installer.sh;./Installer.sh;source ~/.bashrc`` 
+#### Dependencies
 
-Step by step:
-1. Download `curl -L -o Installer.sh https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/ctrl/Installer.sh`
-2. Allow `chmod a+x Installer.sh`
-3. Install `./Installer.sh`
-4. Run `source ~/.bashrc`
-**Thats it!**
+- [Norminette](https://github.com/42School/norminette "42 Norminette")
+- [42header](https://github.com/42Paris/42header "42header vim plugin")
 
+### Installing
+```sh
+git clone git@github.com:IsCoffeeTho/42vogship.git
+make
+```
+
+## Updates
 Updates:
-`man <vogship command>` now shows a man page with information. (if you want more info on the man pages, feel free to open up an issue with the repo)
-`vogship -u[f]` in versions v1.2.1 onward you can update vogship using the main vogship command. the `f` flag is to force a reinstallation of the latest update.
+Everything that isn't a two liner in bash is now written in C to speed things up
 
-### Commands
+## Commands
 The Vogship adds the following commands:
 - `car <file/files>` compiles, runs, and returns. perfect for slight debugging.
 - `clsyc` Cleans up the system trying to clean up temp files that get left behind.

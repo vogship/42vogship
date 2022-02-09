@@ -1,0 +1,24 @@
+.TH compile 1 "October 13, 2021"
+.LO 1
+.SH NAME
+compile \- Compiles anything with -Wall -Wextra -Werror.
+.SH SYNOPSIS
+.BR compile
+.RB [\-flags]
+.RB [files]
+
+.SH DESCRIPTION
+.BR compile
+Runs gcc with all the standard parameters as well as extra parameters you may want to add. Useful for needing to compile down a program, a header, or even object files.
+
+.SH TIPS
+This command is NOT Makefile compatible with Moulinette. If you are compiling in a make file use 
+.BR gcc .
+
+.SH AUTHOR
+Aaron Menadue <amenadue@student.42adel.org.au> is the Lead Developer of '42 Vogship'.
+
+.SH SEE ALSO
+.BR car (1),
+.BR norm (1),
+.BR vogship (1)

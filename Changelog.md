@@ -6,8 +6,12 @@
       | |                      Made By Developers for Developers
 ```
 ## Upcoming Features
-- Animated installer
-- Dedicated Package Manager
+- Animated Installer
+- Student Upkept Package Manager
+
+## Changelog v2.0 Turbo
+- Switched everything over to C for speed
+- Fed the Dinno
 
 ## Changelog v1.2.5 Patch591246
 - Made `rsthead` to clear duplicate headers.

@@ -1,9 +1,9 @@
 # Authors
-- Aaron Menadue (Main Developer)
+- Aaron Menadue (Lead Developer)
   - amenadue
   - IsCoffeeTho#0001
   - [iscoffee.learning@gmail.com](mailto:iscoffee.learning@gmail.com)
-- Tomas Turner (Contribution and Debugger)
+- Tomas Turner (Contribution and Debugging)
   - tturner
   - TomT#1016
   - [tturner@student.42adel.org.au](mailto:tturner@student.42adel.org.au)
@@ -14,7 +14,7 @@
 - Jaymie Gobbett (QA)
   - jgobbett
   - JayJay#2913
-  - [jgobbett@student.42adel.org.au](mailto:bhawksmi@student.42adel.org.au)
+  - [jgobbett@student.42adel.org.au](mailto:jgobbett@student.42adel.org.au)
 - Pasquale Rossi (QA)
   - prossi
   - Pasquale Rossi#3642

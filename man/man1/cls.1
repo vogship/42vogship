@@ -1,0 +1,23 @@
+.TH cls 1 "October 13, 2021"
+.LO 1
+.SH NAME
+cls \- clears the terminal screen
+.SH SYNOPSIS
+.B clear
+
+.SH DESCRIPTION
+.B clear
+clears your screen if this is possible. It looks in the environment for the terminal type in the
+.B terminfo
+database to figure out how to clear the screen.
+
+.B clear
+ignores any command-line paramters that may be present.
+
+.SH SEE ALSO
+.BR tput (1),
+.BR terminfo (5)
+
+This describes
+.B ncurses
+version 5.7 (patch20081102).

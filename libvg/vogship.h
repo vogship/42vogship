@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/09 20:03:16 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/09 20:10:58 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string.h>
 # include <stdio.h>
+# include <stdlib.h>
 
 # define VG_VER "v2.0 Turbo"
 # define VG_AUTHOR "Aaron Menadue"
@@ -44,5 +45,8 @@ int		startswith(const t_str s, const t_str w);
 int		endswith(const t_str s, const t_str w);
 int		contains(t_str s, char l);
 void	nl(void);
+t_str	vg_run(const t_str cmd);
+
+int	regex(const t_str s, const t_str w);
 
 #endif

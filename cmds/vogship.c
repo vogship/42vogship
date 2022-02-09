@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/09 20:03:31 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/09 20:07:21 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int c, t_str *v)
 				{
 					tmp = vg_run("curl -s https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/versionstring -o /tmp/vogshipver; cat /tmp/vogshipver");
 					printf("Updated to %s", tmp);
-					vg_run("git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship; make all -C /tmp/vogship; rm -rf /tmp/vogship");
+					vg_run("git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship; clear; make all -C /tmp/vogship; rm -rf /tmp/vogship");
 					vg_run("rm -rf /tmp/vogshipver");
 				}
 				else
@@ -52,7 +52,7 @@ int	main(int c, t_str *v)
 						if (strcmp(tmp, VG_VER))
 						{
 							printf("Updated to %s", tmp);
-							vg_run("git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship; make all -C /tmp/vogship; rm -rf /tmp/vogship");
+							vg_run("git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship; clear; make all -C /tmp/vogship; rm -rf /tmp/vogship");
 						}
 						else
 						{

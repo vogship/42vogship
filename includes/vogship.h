@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 23:48:03 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/09 18:12:33 by amenadue         ###   ########.fr       */
+/*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
+/*   Updated: 2022/02/09 20:11:28 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ int		contains(t_str s, char l);
 void	nl(void);
 t_str	vg_run(const t_str cmd);
 
-int		regex(const t_str s, const t_str w);
+int	regex(const t_str s, const t_str w);
 
 #endif

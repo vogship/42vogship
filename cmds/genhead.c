@@ -6,11 +6,11 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/09 20:04:50 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/09 22:12:58 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/vogship.h"
+#include "../libvg/vogship.h"
 
 const int	g_cmdindex = 4;
 

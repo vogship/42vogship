@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/23 14:43:32 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/23 15:01:06 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ t_str	vg_run(const t_str cmd)
 {
 	FILE	*fp;
 	t_str	line;
-	int		i;
 
 	line = (char *) malloc(512 * sizeof(char));
 	fp = popen(cmd, "r");
@@ -105,7 +104,6 @@ void	vg_runp(const t_str cmd)
 {
 	FILE	*fp;
 	t_str	line;
-	int		i;
 
 	line = (char *) malloc(512 * sizeof(char));
 	fp = popen(cmd, "r");

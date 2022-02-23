@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   clsyc.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/09 22:13:08 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/23 15:04:37 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	main(void)
 {
 	t_str	tmp;
 	
-	tmp = vg_run("du -Hk ~");
+	tmp = vg_run("du -Hk ~ 2>&1");
 	printf("\e[92mBefore Cleanup: %s", tmp);
-	system("rm -rf ~/Library/Caches/*");
-	tmp = vg_run("du -Hk ~");
+	vg_runp("rm -rf ~/Library/Caches/* 2>&1");
+	tmp = vg_run("du -Hk ~ 2>&1");
 	printf("\e[92mAfter Cleanup: %s", tmp);
 	return (0);
 }

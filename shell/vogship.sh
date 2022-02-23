@@ -41,7 +41,7 @@ car() {
 
 norm() {
 	if [ -z "$1" ]; then
-		norm * 
+		norm */* 
 	else
 		~/.vogship/bin/norm $@
 	fi
@@ -58,7 +58,7 @@ cls() {
 
 genhead() {
 	if [ -z "$1" ]; then
-		genhead *
+		genhead */*
 	else
 		~/.vogship/bin/genhead $@
 	fi
@@ -66,7 +66,7 @@ genhead() {
 
 rsthead() {
 	if [ -z "$1" ]; then
-		rsthead *
+		rsthead */*
 	else
 		~/.vogship/bin/rsthead $@
 	fi

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vogship.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/09 22:09:30 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:40:43 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		endswith(const t_str s, const t_str w);
 int		contains(t_str s, char l);
 void	nl(void);
 t_str	vg_run(const t_str cmd);
+void	vg_runp(const t_str cmd);
 
 int	regex(const t_str s, const t_str w);
 

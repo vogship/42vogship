@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vg_util.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/09 20:05:01 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:43:32 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,21 @@ t_str	vg_run(const t_str cmd)
 	while (fgets(line, 512, fp) != NULL)
 		;
 	return (line);
+}
+
+void	vg_runp(const t_str cmd)
+{
+	FILE	*fp;
+	t_str	line;
+	int		i;
+
+	line = (char *) malloc(512 * sizeof(char));
+	fp = popen(cmd, "r");
+	if (fp == NULL)
+	{
+		printf("Failed to run command: %s\n", cmd);
+		return ;
+	}
+	while (fgets(line, 512, fp) != NULL)
+		printf("%s", line);
 }

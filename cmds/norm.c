@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   norm.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/09 22:12:59 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/23 14:37:46 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ int	main(int c, t_str *v)
 			if (endswith(v[i], ".c"))
 			{
 				tmp = strdup("norminette -R CheckForbiddenSourceHeader ");
-				system(strcat(tmp, v[i]));
+				vg_runp(strcat(tmp, v[i]));
 			}
 			if (endswith(v[i], ".h"))
 			{
 				tmp = strdup("norminette -R CheckDefine ");
-				system(strcat(tmp, v[i]));
+				vg_runp(strcat(tmp, v[i]));
 			}
 			i++;
 		}

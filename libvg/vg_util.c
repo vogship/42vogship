@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/23 15:01:06 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:19:43 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	startswith(const t_str s, const t_str w)
 	int	wl;
 	int	i;
 
-	sl = strlen(s);
-	wl = strlen(w);
+	sl = ft_strlen(s);
+	wl = ft_strlen(w);
 	if (sl >= wl)
 	{
 		i = 0;
@@ -42,8 +42,8 @@ int	endswith(const t_str s, const t_str w)
 	int	wl;
 	int	i;
 
-	sl = strlen(s) - 1;
-	wl = strlen(w) - 1;
+	sl = ft_strlen(s) - 1;
+	wl = ft_strlen(w) - 1;
 	if (sl >= wl)
 	{
 		i = 0;
@@ -65,7 +65,7 @@ int	contains(t_str s, char l)
 	int	sl;
 	int	i;
 
-	sl = strlen(s);
+	sl = ft_strlen(s);
 	i = 0;
 	while (i < sl)
 	{
@@ -114,4 +114,5 @@ void	vg_runp(const t_str cmd)
 	}
 	while (fgets(line, 512, fp) != NULL)
 		printf("%s", line);
+	free(line);
 }

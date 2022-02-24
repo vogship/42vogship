@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rsthead.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/09 22:13:00 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:30:18 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	main(int c, t_str *v)
 					{
 						if (flag >= 11)
 						{
-							if (!strcmp(line, "")) {
+							if (!ft_strncmp(line, "", 1)) {
 								start_writing = 1;
 							}
 						}
@@ -74,13 +74,13 @@ int	main(int c, t_str *v)
 				}
 				fclose(fp);
 				fclose(nfp);
-
 				if (line)
 					free(line);
 
-				line = strdup("mv tmprmheader ");
+				line = ft_strdup("mv tmprmheader ");
 				vg_run(strcat(line, v[i]));
 				vg_run("rm -rf tmprmheader");
+				free(line);
 			}
 			i++;
 		}

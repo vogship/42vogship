@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vogship.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/09 22:13:02 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:27:57 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int	main(int c, t_str *v)
 				{
 					tmp = vg_run("curl -s https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/versionstring -o /tmp/vogshipver; cat /tmp/vogshipver");
 
-					if (strcmp(tmp, "cat: /tmp/vogshipver: No such file or directory"))
+					if (ft_strncmp(tmp, "cat: /tmp/vogshipver: No such file or directory", 48))
 					{
-						if (strcmp(tmp, VG_VER))
+						if (ft_strncmp(tmp, VG_VER, 20))
 						{
 							printf("Updated to %s", tmp);
 							vg_run("git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship; clear; make all -C /tmp/vogship; rm -rf /tmp/vogship");
@@ -84,5 +84,7 @@ int	main(int c, t_str *v)
 		vg_contributors();
 	}
 	if (pnl) nl();
+	if (tmp)
+		free(tmp);
 	return (0);
 }

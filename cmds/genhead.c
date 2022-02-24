@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   genhead.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/09 22:12:58 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:29:33 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int c, t_str *v)
 				fp = fopen(v[i], "r");
 				if (!fp) {
 					fprintf(stderr, "Failed to open %s\n", v[i]);
-					return 1;
+					return (1);
 				}
 
 				while (getline(&line, &len, fp) != -1) {
@@ -70,8 +70,8 @@ int	main(int c, t_str *v)
 					free(line);
 
 				if (flag < 5) {
-					line = strdup("vim -c \"Stdheader\" -c \"wq\" ");
-					system(strcat(line, v[i]));
+					line = ft_strdup("vim -c \"Stdheader\" -c \"wq\" ");
+					vg_runp((char *)ft_strlcat(line, v[i], 128));
 					printf("%s: Generated!\n", v[i]);
 				} else {
 					printf("%s: Already has :Stdheader!\n", v[i]);
@@ -79,7 +79,8 @@ int	main(int c, t_str *v)
 			}
 			i++;
 		}
-
 	}
+	if (line)
+		free(line);
 	return (0);
 }

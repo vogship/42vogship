@@ -6,16 +6,14 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/23 15:11:06 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:31:28 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VOGSHIP_H
 # define VOGSHIP_H
 
-# include <string.h>
-# include <stdio.h>
-# include <stdlib.h>
+# include "../libft/libft.h"
 
 # define VG_VER "v2.0 Turbo p(0.0.1)"
 # define VG_AUTHOR "Aaron Menadue"

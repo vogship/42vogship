@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vg_util1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/09 20:12:55 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:19:59 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	regex(const t_str s, const t_str w)
 	int	i;
 	int	j;
 
-	sl = strlen(s);
-	wl = strlen(w);
+	sl = ft_strlen(s);
+	wl = ft_strlen(w);
 	i = 0;
 	if (sl > wl)
 	{

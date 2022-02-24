@@ -6,7 +6,7 @@
 #    By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/08 23:46:33 by amenadue          #+#    #+#              #
-#    Updated: 2022/02/23 14:40:23 by amenadue         ###   ########.fr        #
+#    Updated: 2022/02/24 16:25:29 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,10 +71,12 @@ all:
 	-@mkdir ~/.vogship 2>/dev/null || true
 	-@mkdir ~/.vogship/bin 2>/dev/null || true
 	-@mkdir ~/.vogship/man 2>/dev/null || true
+	-@$(MAKE) all -s -C libft 2>/dev/null || true
+	-@cp libft/libft.a libft.a 2>/dev/null || true
 	-@$(MAKE) all -s -C libvg 2>/dev/null || true
 	-@cp libvg/libvg.a libvg.a 2>/dev/null || true
 	-@printf "\e[uCompiling...\e[K\e[E\e[E   \e[31m()\e[0m\n\n"
-	-@$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a -o ~/.vogship/bin/$(COMMAND);)
+	-@$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a libft.a -o ~/.vogship/bin/$(COMMAND);)
 	-@printf "\e[uRegistering Commands...\e[K\e[E\e[E  \e[93m(\e[91m)(\e[93m)\e[0m\n   \e[93m||\e[0m\n"
 	-@cp -r man ~/.vogship/man
 	-@cp shell/vogship.sh ~/.vogship/vogship.sh
@@ -84,7 +86,13 @@ all:
 	-@printf "\e[uInstalled!\e[K\e[E\e[E  \e[93m|\e[91m)(\e[93m|\e[0m\n   \e[93m||\e[0m\n"
 
 clean:
-	-@$(MAKE) fclean -s -C libvg 2>/dev/null || true
+	-@$(MAKE) clean -s -C libft 2>/dev/null || true
+	-@rm -rf libft.a
+	-@$(MAKE) clean -s -C libvg 2>/dev/null || true
 	-@rm -rf libvg.a
+
+fclean: clean
+	-@$(MAKE) fclean -s -C libft 2>/dev/null || true
+	-@$(MAKE) fclean -s -C libvg 2>/dev/null || true
 
 .PHONY: clean

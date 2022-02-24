@@ -8,6 +8,9 @@
 ## Upcoming Features
 - Student Upkept Package Manager
 
+## Changelog v2.0 Turbo p0.0.2
+- Fixed issues for running on mac
+
 ## Changelog v2.0 Turbo
 - Switched everything over to C for speed.
 - Fed the Dinno.

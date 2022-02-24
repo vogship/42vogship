@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/24 16:29:33 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:40:41 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(int c, t_str *v)
 
 				if (flag < 5) {
 					line = ft_strdup("vim -c \"Stdheader\" -c \"wq\" ");
-					vg_runp((char *)ft_strlcat(line, v[i], 128));
+					vg_runp((t_str)ft_strlcat(line, v[i], 128));
 					printf("%s: Generated!\n", v[i]);
 				} else {
 					printf("%s: Already has :Stdheader!\n", v[i]);

@@ -6,7 +6,7 @@
 #    By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/08 23:46:33 by amenadue          #+#    #+#              #
-#    Updated: 2022/02/24 16:25:29 by amenadue         ###   ########.fr        #
+#    Updated: 2022/02/24 16:37:33 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,12 +61,12 @@ endif
 INCLDS = $(INCLUDES:%=includes/%)
 
 all:
-	-@printf "\e[31m   /\    \e[0m\n"
-	-@printf "\e[31m  /__\   \e[0m\n"
-	-@printf "\e[90m  |\e[0m42\e[90m|   \e[0mVogship\n"
-	-@printf "\e[90m /|/\|\  \e[0m\e[s\n"
-	-@printf "\e[90m/_||||_\ \e[0m\n"
-	-@printf "\n\n\n"
+#	-@printf "\e[31m   /\    \e[0m\n"
+#	-@printf "\e[31m  /__\   \e[0m\n"
+#	-@printf "\e[90m  |\e[0m42\e[90m|   \e[0mVogship\n"
+#	-@printf "\e[90m /|/\|\  \e[0m\e[s\n"
+#	-@printf "\e[90m/_||||_\ \e[0m\n"
+#	-@printf "\n\n\n"
 	-@rm -rf ~/.vogship/* 2>/dev/null || true
 	-@mkdir ~/.vogship 2>/dev/null || true
 	-@mkdir ~/.vogship/bin 2>/dev/null || true
@@ -75,15 +75,15 @@ all:
 	-@cp libft/libft.a libft.a 2>/dev/null || true
 	-@$(MAKE) all -s -C libvg 2>/dev/null || true
 	-@cp libvg/libvg.a libvg.a 2>/dev/null || true
-	-@printf "\e[uCompiling...\e[K\e[E\e[E   \e[31m()\e[0m\n\n"
+#	-@printf "\e[uCompiling...\e[K\e[E\e[E   \e[31m()\e[0m\n\n"
 	-@$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a libft.a -o ~/.vogship/bin/$(COMMAND);)
-	-@printf "\e[uRegistering Commands...\e[K\e[E\e[E  \e[93m(\e[91m)(\e[93m)\e[0m\n   \e[93m||\e[0m\n"
+#	-@printf "\e[uRegistering Commands...\e[K\e[E\e[E  \e[93m(\e[91m)(\e[93m)\e[0m\n   \e[93m||\e[0m\n"
 	-@cp -r man ~/.vogship/man
 	-@cp shell/vogship.sh ~/.vogship/vogship.sh
 	-@$(if $(shell grep "source ~\/\.vogship\/vogship\.sh" ~/.bashrc),,@printf "source ~/.vogship/vogship.sh" >> ~/.bashrc)
 	-@$(if $(shell grep "source ~\/\.vogship\/vogship\.sh" ~/.zshrc),,@printf "source ~/.vogship/vogship.sh" >> ~/.zshrc)
 	-@$(source ~/.vogship/vogship.sh)
-	-@printf "\e[uInstalled!\e[K\e[E\e[E  \e[93m|\e[91m)(\e[93m|\e[0m\n   \e[93m||\e[0m\n"
+#	-@printf "\e[uInstalled!\e[K\e[E\e[E  \e[93m|\e[91m)(\e[93m|\e[0m\n   \e[93m||\e[0m\n"
 
 clean:
 	-@$(MAKE) clean -s -C libft 2>/dev/null || true

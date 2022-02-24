@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/24 16:30:18 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/24 16:47:06 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int c, t_str *v)
 				}
 
 				while (getline(&line, &len, fp) != -1) {
-					line[strcspn(line, "\n")] = 0;
+					line[80] = 0;
 					if (start_writing)
 					{
 						fprintf(nfp, "%s\n", line);
@@ -71,16 +71,17 @@ int	main(int c, t_str *v)
 							flag++;
 						}
 					}
+					if (line)
+						free(line);
 				}
 				fclose(fp);
 				fclose(nfp);
-				if (line)
-					free(line);
 
 				line = ft_strdup("mv tmprmheader ");
 				vg_run(strcat(line, v[i]));
 				vg_run("rm -rf tmprmheader");
-				free(line);
+				if (line)
+					free(line);
 			}
 			i++;
 		}

@@ -18,12 +18,12 @@ The Vogship allows you to navigate the vogsphere a lot more freely so you can fo
 ### Installing
 one liner:  
 ```sh
-git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship; make all -C /tmp/vogship; rm -rf /tmp/vogship;source ~/.bashrc
+git clone https://github.com/IsCoffeeTho/42vogship.git /tmp/vogship; make all -C /tmp/vogship; rm -rf /tmp/vogship;source ~/.bashrc
 ```  
   
 line by line:
 ```sh
-git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship;
+git clone https://github.com/IsCoffeeTho/42vogship.git /tmp/vogship;
 make all -C /tmp/vogship;
 rm -rf /tmp/vogship;
 source ~/.bashrc
@@ -33,7 +33,7 @@ Install location: `~/.vogship/`
 
 ## Updates
 Updates:
-Everything that isn't a two liner in bash is now written in C to speed things up
+Fixed some issues that mac run
 
 ## Commands
 The Vogship adds the following commands:

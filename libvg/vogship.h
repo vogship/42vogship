@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/24 16:41:27 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/26 10:49:09 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,18 @@ typedef struct s_vgcmd
 # define VG_COMMAND_COUNT 9
 
 void	vg_icon(void);
-
 void	vg_version(void);
 void	vg_author(void);
 void	vg_contributors(void);
-
 void	vg_cmdinfo(t_vgcmd vgcmd);
 void	vg_cmdlist(void);
 void	vg_cmdhelp(int i);
-
 int		startswith(const t_str s, const t_str w);
 int		endswith(const t_str s, const t_str w);
 int		contains(t_str s, char l);
 void	nl(void);
 t_str	vg_run(const t_str cmd);
 void	vg_runp(const t_str cmd);
-
-int	regex(const t_str s, const t_str w);
+int		regex(const t_str s, const t_str w);
 
 #endif

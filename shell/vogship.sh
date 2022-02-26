@@ -57,17 +57,9 @@ cls() {
 }
 
 genhead() {
-	if [ -z "$1" ]; then
-		genhead */*
-	else
-		~/.vogship/bin/genhead $@
-	fi
+	~/.vogship/bin/genhead $@
 }
 
 rsthead() {
-	if [ -z "$1" ]; then
-		rsthead */*
-	else
-		~/.vogship/bin/rsthead $@
-	fi
+	~/.vogship/bin/rsthead $@
 }

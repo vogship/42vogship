@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
+#    By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/08 23:46:33 by amenadue          #+#    #+#              #
-#    Updated: 2022/02/09 20:04:57 by amenadue         ###   ########.fr        #
+#    Updated: 2022/02/26 10:48:40 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

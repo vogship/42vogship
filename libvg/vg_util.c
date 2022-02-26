@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/26 12:32:41 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/26 14:09:18 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int	endswith(const t_str s, const t_str w)
 	int	wl;
 	int	i;
 
-	sl = ft_strlen(s) - 1;
-	wl = ft_strlen(w) - 1;
+	sl = ft_strlen(s);
+	wl = ft_strlen(w);
 	if (sl >= wl)
 	{
 		i = 0;
-		while (i < wl)
+		while (i < wl + 1)
 		{
 			if (s[sl - i] != w[wl - i])
 			{

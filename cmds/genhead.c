@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/26 11:48:40 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/26 15:05:23 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,15 @@ int hasfileext(t_str file, t_str set)
 
 int	main(int c, t_str *v)
 {
+	t_str	tmp;
 	t_str	line;
 	int		flag;
     size_t	len = 0;
     ssize_t	read;
+
+	int proceed;
+	t_str start;
+	t_str end;
 
     FILE    *fp;
 	int	i;
@@ -68,14 +73,14 @@ int	main(int c, t_str *v)
 	{
 		while (i < c)
 		{
-			line = strdup("ls ");
-			ft_strlcat(line, v[i], 128);
-			line = vg_run(line);
+			tmp = ft_strdup("ls ");
+			ft_strlcat(tmp, v[i], 128);
+			line = vg_run(tmp);
 			if (endswith(line, "No such file or directory"))
 			{
 				printf("Couldn't find %s\n", v[i]);
 			}
-			else if (!strcmp(line, v[i]))
+			else if (ft_strncmp(line, v[i], ft_strlen(v[i])+1) != 10)
 			{
 				line = strdup("~/.vogship/bin/genhead ");
 				ft_strlcat(line, v[i], 128);
@@ -84,7 +89,50 @@ int	main(int c, t_str *v)
 			}
 			else 
 			{
+				proceed = 0;
 				if (hasfileext(v[i], "c cc h hh cpp hpp php")) {
+					start = ft_strdup("/*");
+					end = ft_strdup("*/");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "htm html xml")) {
+					start = ft_strdup("<!--");
+					end = ft_strdup("-->");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "js")) {
+					start = ft_strdup("//");
+					end = ft_strdup("//");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "tex")) {
+					start = ft_strdup("%");
+					end = ft_strdup("%");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "ml mli mll mly")) {
+					start = ft_strdup("(*");
+					end = ft_strdup("*)");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "vim vimrc")) {
+					start = ft_strdup("\"");
+					end = ft_strdup("\"");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "el emacs")) {
+					start = ft_strdup(";");
+					end = ft_strdup(";");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "f90 f95 f03 f for")) {
+					start = ft_strdup("!");
+					end = ft_strdup("!");
+					proceed = 1;
+				}
+
+				if (proceed)
+				{
 					flag = 0;
 					fp = fopen(v[i], "r");
 					if (!fp) {
@@ -94,8 +142,8 @@ int	main(int c, t_str *v)
 
 					while (getline(&line, &len, fp) != -1) {
 						line[strcspn(line, "\n")] = 0;
-						if (startswith(line, "/*")) {
-							if (endswith(line, "*/")) {
+						if (startswith(line, start)) {
+							if (endswith(line, end)) {
 								if (regex(line, "By: !"))
 									if (regex(line, "! <!"))
 										flag++;
@@ -103,7 +151,9 @@ int	main(int c, t_str *v)
 									flag++;
 								if (regex(line, "Updated: !!!!/!!/!! !!:!!:!! by !"))
 									flag++;
-								if (regex(line, "**************************************************************************"))
+								if (regex(line, "***************************************************"))
+									flag++;
+								if (regex(line, "///////////////////////////////////////////////////"))
 									flag++;
 							} else {
 								break;
@@ -118,7 +168,6 @@ int	main(int c, t_str *v)
 						line = ft_strdup("vim -c \"Stdheader\" -c \"wq\" ");
 						ft_strlcat(line, v[i], ft_strlen(v[i]) + strlen(line));
 						system(line);
-						free(line);
 						printf("%s: Generated!\n", v[i]);
 					} else {
 						printf("%s: Already has :Stdheader!\n", v[i]);

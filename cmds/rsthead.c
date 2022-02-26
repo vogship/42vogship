@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/26 12:53:44 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/26 14:42:17 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int hasfileext(t_str file, t_str set)
 	buf = (t_str) malloc(setlen * sizeof(char));
 	while (i < setlen)
 	{
-		if (set[i] == ' ' || set[i] == '\0')
+		if (set[i] == ' ')
 		{
 			ext = ft_strdup(".");
-			ft_strlcat(ext, buf, j+1);
+			ft_strlcat(ext, buf, j+2);
 			if (endswith(file, ext))
 				return (1);
 			ft_bzero(buf, setlen);
@@ -55,6 +55,10 @@ int	main(int c, t_str *v)
     size_t	len = 0;
     ssize_t	read;
 
+	int		proceed;
+	t_str	start;
+	t_str	end;
+
     FILE    *fp;
 	FILE	*nfp;
 	int	i;
@@ -77,18 +81,59 @@ int	main(int c, t_str *v)
 			{
 				printf("Couldn't find %s\n", v[i]);
 			}
-			else if (!strcmp(line, v[i]))
+			else if (ft_strncmp(line, v[i], ft_strlen(v[i])+1) != 10)
 			{
 				line = strdup("~/.vogship/bin/rsthead ");
 				ft_strlcat(line, v[i], 128);
 				ft_strlcat(line, "/*", 128);
-				printf("%s: dir!\n", v[i]);
 				vg_runp(line);
 			}
 			else 
 			{
+				proceed = 0;
 				if (hasfileext(v[i], "c cc h hh cpp hpp php")) {
-					printf("%s: \n", v[i]);
+					start = ft_strdup("/*");
+					end = ft_strdup("*/");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "htm html xml")) {
+					start = ft_strdup("<!--");
+					end = ft_strdup("-->");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "js")) {
+					start = ft_strdup("//");
+					end = ft_strdup("//");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "tex")) {
+					start = ft_strdup("%");
+					end = ft_strdup("%");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "ml mli mll mly")) {
+					start = ft_strdup("(*");
+					end = ft_strdup("*)");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "vim vimrc")) {
+					start = ft_strdup("\"");
+					end = ft_strdup("\"");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "el emacs")) {
+					start = ft_strdup(";");
+					end = ft_strdup(";");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "f90 f95 f03 f for")) {
+					start = ft_strdup("!");
+					end = ft_strdup("!");
+					proceed = 1;
+				}
+
+				if (proceed)
+				{
 					flag = 0;
 					start_writing = 0;
 					fp = fopen(v[i], "r");
@@ -116,7 +161,7 @@ int	main(int c, t_str *v)
 									start_writing = 1;
 								}
 							}
-							if (startswith(line, "/*") && endswith(line, "*/"))
+							if (startswith(line, start) && endswith(line, end))
 							{
 								flag++;
 							}
@@ -125,15 +170,16 @@ int	main(int c, t_str *v)
 					fclose(fp);
 					fclose(nfp);
 
-					line = ft_strdup("mv vgrmheader ");
-					ft_strlcat(line, v[i], 128);
-					vg_run(line);
+					if (flag >= 11)
+					{
+						line = ft_strdup("mv vgrmheader ");
+						ft_strlcat(line, v[i], 128);
+						vg_run(line);
+						printf("%s: Removed header!\n", v[i]);
+						if (line != NULL)
+							free(line);
+					}
 					vg_run("rm -rf vgrmheader");
-					printf("%s: Removed header!\n", v[i]);
-					if (line != NULL)
-						free(line);
-				} else {
-					printf("%s: Invalid Format: skipped!\n", v[i]);
 				}
 			}
 			i++;

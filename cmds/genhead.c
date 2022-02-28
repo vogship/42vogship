@@ -6,13 +6,22 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/26 15:05:23 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:16:47 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libvg/vogship.h"
+#include <sys/types.h>
+#include <sys/stat.h>
 
 const int	g_cmdindex = 4;
+
+int is_regular_file(const char *path)
+{
+    struct stat path_stat;
+    stat(path, &path_stat);
+    return S_ISREG(path_stat.st_mode);
+}
 
 int hasfileext(t_str file, t_str set)
 {
@@ -80,7 +89,7 @@ int	main(int c, t_str *v)
 			{
 				printf("Couldn't find %s\n", v[i]);
 			}
-			else if (ft_strncmp(line, v[i], ft_strlen(v[i])+1) != 10)
+			else if (!is_regular_file(v[i]))
 			{
 				line = strdup("~/.vogship/bin/genhead ");
 				ft_strlcat(line, v[i], 128);
@@ -90,44 +99,58 @@ int	main(int c, t_str *v)
 			else 
 			{
 				proceed = 0;
-				if (hasfileext(v[i], "c cc h hh cpp hpp php")) {
+				if (hasfileext(v[i], "c cc h hh cpp hpp php"))
+				{
 					start = ft_strdup("/*");
 					end = ft_strdup("*/");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "htm html xml")) {
+				else if (hasfileext(v[i], "htm html xml"))
+				{
 					start = ft_strdup("<!--");
 					end = ft_strdup("-->");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "js")) {
+				else if (hasfileext(v[i], "js"))
+				{
 					start = ft_strdup("//");
 					end = ft_strdup("//");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "tex")) {
+				else if (hasfileext(v[i], "tex"))
+				{
 					start = ft_strdup("%");
 					end = ft_strdup("%");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "ml mli mll mly")) {
+				else if (hasfileext(v[i], "ml mli mll mly"))
+				{
 					start = ft_strdup("(*");
 					end = ft_strdup("*)");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "vim vimrc")) {
+				else if (hasfileext(v[i], "vim vimrc"))
+				{
 					start = ft_strdup("\"");
 					end = ft_strdup("\"");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "el emacs")) {
+				else if (hasfileext(v[i], "el emacs"))
+				{
 					start = ft_strdup(";");
 					end = ft_strdup(";");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "f90 f95 f03 f for")) {
+				else if (hasfileext(v[i], "f90 f95 f03 f for"))
+				{
 					start = ft_strdup("!");
 					end = ft_strdup("!");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "sh ") || endswith(v[i], "Makefile"))
+				{
+					start = ft_strdup("#");
+					end = ft_strdup("#");
 					proceed = 1;
 				}
 
@@ -166,8 +189,9 @@ int	main(int c, t_str *v)
 
 					if (flag < 5) {
 						line = ft_strdup("vim -c \"Stdheader\" -c \"wq\" ");
-						ft_strlcat(line, v[i], ft_strlen(v[i]) + strlen(line));
-						system(line);
+						ft_strlcat(line, v[i], 128);
+						ft_strlcat(line, " 2>/dev/null || true", 128);
+						vg_run(line);
 						printf("%s: Generated!\n", v[i]);
 					} else {
 						printf("%s: Already has :Stdheader!\n", v[i]);

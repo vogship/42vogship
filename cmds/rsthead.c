@@ -6,13 +6,22 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/26 14:42:17 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/28 14:13:35 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libvg/vogship.h"
+#include <sys/types.h>
+#include <sys/stat.h>
 
 const int	g_cmdindex = 5;
+
+int is_regular_file(const char *path)
+{
+    struct stat path_stat;
+    stat(path, &path_stat);
+    return S_ISREG(path_stat.st_mode);
+}
 
 int hasfileext(t_str file, t_str set)
 {
@@ -49,6 +58,7 @@ int hasfileext(t_str file, t_str set)
 
 int	main(int c, t_str *v)
 {
+	t_str	tmp;
 	t_str	line;
 	int		flag;
 	int		start_writing;
@@ -74,14 +84,14 @@ int	main(int c, t_str *v)
 	{
 		while (i < c)
 		{
-			line = ft_strdup("ls ");
-			ft_strlcat(line, v[i], 128);
-			line = vg_run(line);
+			tmp = ft_strdup("ls ");
+			ft_strlcat(tmp, v[i], 128);
+			line = vg_run(tmp);
 			if (endswith(line, "No such file or directory"))
 			{
 				printf("Couldn't find %s\n", v[i]);
 			}
-			else if (ft_strncmp(line, v[i], ft_strlen(v[i])+1) != 10)
+			else if (!is_regular_file(v[i]))
 			{
 				line = strdup("~/.vogship/bin/rsthead ");
 				ft_strlcat(line, v[i], 128);
@@ -91,44 +101,58 @@ int	main(int c, t_str *v)
 			else 
 			{
 				proceed = 0;
-				if (hasfileext(v[i], "c cc h hh cpp hpp php")) {
+				if (hasfileext(v[i], "c cc h hh cpp hpp php"))
+				{
 					start = ft_strdup("/*");
 					end = ft_strdup("*/");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "htm html xml")) {
+				else if (hasfileext(v[i], "htm html xml"))
+				{
 					start = ft_strdup("<!--");
 					end = ft_strdup("-->");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "js")) {
+				else if (hasfileext(v[i], "js"))
+				{
 					start = ft_strdup("//");
 					end = ft_strdup("//");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "tex")) {
+				else if (hasfileext(v[i], "tex"))
+				{
 					start = ft_strdup("%");
 					end = ft_strdup("%");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "ml mli mll mly")) {
+				else if (hasfileext(v[i], "ml mli mll mly"))
+				{
 					start = ft_strdup("(*");
 					end = ft_strdup("*)");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "vim vimrc")) {
+				else if (hasfileext(v[i], "vim vimrc"))
+				{
 					start = ft_strdup("\"");
 					end = ft_strdup("\"");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "el emacs")) {
+				else if (hasfileext(v[i], "el emacs"))
+				{
 					start = ft_strdup(";");
 					end = ft_strdup(";");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "f90 f95 f03 f for")) {
+				else if (hasfileext(v[i], "f90 f95 f03 f for"))
+				{
 					start = ft_strdup("!");
 					end = ft_strdup("!");
+					proceed = 1;
+				}
+				else if (hasfileext(v[i], "sh ") || endswith(v[i], "Makefile"))
+				{
+					start = ft_strdup("#");
+					end = ft_strdup("#");
 					proceed = 1;
 				}
 
@@ -146,9 +170,11 @@ int	main(int c, t_str *v)
 						fprintf(stderr, "Failed to open %s\n", v[i]);
 						return (1);
 					}
-
+					
 					line = (t_str) malloc(512 * sizeof(char));
-					while (fgets(line, 512, fp) != NULL) {
+					while (fgets(line, 512, fp) != NULL)
+					{
+						line[strcspn(line, "\n")] = 0;
 						if (start_writing)
 						{
 							fprintf(nfp, "%s\n", line);
@@ -169,7 +195,6 @@ int	main(int c, t_str *v)
 					}
 					fclose(fp);
 					fclose(nfp);
-
 					if (flag >= 11)
 					{
 						line = ft_strdup("mv vgrmheader ");
@@ -179,7 +204,13 @@ int	main(int c, t_str *v)
 						if (line != NULL)
 							free(line);
 					}
+					else 
+					{
+						printf("%s: Has no header!\n", v[i]);
+					}
 					vg_run("rm -rf vgrmheader");
+				} else {
+					printf("%s: I'm not allowed to touch that file extension.\n", v[i]);
 				}
 			}
 			i++;

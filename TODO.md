@@ -1,6 +1,4 @@
 # To Do List
-- Add devstage.
-	- Handle dev branches on github.
 - Create Devogr (C Debugger).
 	- Create c based engine,
 	- Extend variables from engine to user.

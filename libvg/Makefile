@@ -6,7 +6,7 @@
 #    By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/08 23:46:33 by amenadue          #+#    #+#              #
-#    Updated: 2022/02/26 10:48:40 by amenadue         ###   ########.fr        #
+#    Updated: 2022/02/28 18:56:06 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = libvg
 FILES =	vg_info.c \
 		vg_util.c \
 		vg_util1.c \
-		vg_cmds.c
+		vg_cmds.c \
+		vg_stdheader.c
 
 CCFLAGS =	-Wall -Werror -Wextra
 

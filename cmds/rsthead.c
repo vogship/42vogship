@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/28 14:13:35 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/28 18:25:16 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ int	main(int c, t_str *v)
 					end = ft_strdup("!");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "sh ") || endswith(v[i], "Makefile"))
+				else if (hasfileext(v[i], "sh") || endswith(v[i], "Makefile"))
 				{
 					start = ft_strdup("#");
 					end = ft_strdup("#");
@@ -209,8 +209,6 @@ int	main(int c, t_str *v)
 						printf("%s: Has no header!\n", v[i]);
 					}
 					vg_run("rm -rf vgrmheader");
-				} else {
-					printf("%s: I'm not allowed to touch that file extension.\n", v[i]);
 				}
 			}
 			i++;

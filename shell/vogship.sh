@@ -41,7 +41,7 @@ car() {
 
 norm() {
 	if [ -z "$1" ]; then
-		norm */* 
+		norm * 
 	else
 		~/.vogship/bin/norm $@
 	fi

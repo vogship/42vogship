@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/28 14:16:47 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/28 18:37:47 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,7 @@ int	main(int c, t_str *v)
 					end = ft_strdup("!");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "sh ") || endswith(v[i], "Makefile"))
+				else if (hasfileext(v[i], "sh") || endswith(v[i], "Makefile"))
 				{
 					start = ft_strdup("#");
 					end = ft_strdup("#");
@@ -191,8 +191,10 @@ int	main(int c, t_str *v)
 						line = ft_strdup("vim -c \"Stdheader\" -c \"wq\" ");
 						ft_strlcat(line, v[i], 128);
 						ft_strlcat(line, " 2>/dev/null || true", 128);
-						vg_run(line);
+						system(line);
 						printf("%s: Generated!\n", v[i]);
+						if (line != NULL)
+							free(line);
 					} else {
 						printf("%s: Already has :Stdheader!\n", v[i]);
 					}

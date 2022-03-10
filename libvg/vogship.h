@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/26 14:14:23 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/02/28 18:31:11 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ void	nl(void);
 t_str	vg_run(const t_str cmd);
 void	vg_runp(const t_str cmd);
 int		regex(const t_str s, const t_str w);
+int		vg_stdheader(t_str filepath);
 
 #endif

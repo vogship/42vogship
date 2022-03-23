@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:29:51 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/12 22:10:12 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/24 00:37:07 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ t_str text_line(t_str left, t_str right)
 	int marginright;
 	int marginend;
 
-	line = (t_str) malloc(STDHEADER_LENGTH * sizeof(char));
+	line = (t_str) malloc(STDHEADER_LENGTH+1 * sizeof(char));
 	ft_strlcat(line, start, STDHEADER_MARGIN);
 	marginend = STDHEADER_LENGTH - ft_strlen(end);
 	marginright = STDHEADER_LENGTH - STDHEADER_MARGIN;
@@ -99,7 +99,8 @@ t_str fill_line()
 	t_str	tmp;
 	int		fillwidth;
 
-	line = ft_strdup(start);
+	line = (t_str) malloc((STDHEADER_LENGTH+1) * sizeof(char));
+	ft_strlcat(line, start, STDHEADER_MARGIN);
 	fillwidth = STDHEADER_LENGTH - ft_strlen(end) - ft_strlen(start) - 2;
 	ft_strlcat(line, " ", STDHEADER_LENGTH+1);
 	tmp = crepeat(fill, fillwidth);
@@ -192,10 +193,11 @@ int		vg_stdheader(t_str filepath)
 			if (feof(fp))
 				break;
 		}
-		tmp = ft_strdup("cp /tmp/stdheader ");
-		ft_strlcat(tmp, filepath, ft_strlen(tmp) + ft_strlen(filepath) + 1);
-		ft_strlcat(tmp, "; rm /tmp/stdheader", ft_strlen(tmp) + 20);
-		vg_run(tmp);
+		tmp = (t_str) malloc(128 * sizeof(char));
+		ft_strlcat(tmp, "cp /tmp/stdheader ", 19);
+		ft_strlcat(tmp, filepath, 20 + ft_strlen(filepath));
+		ft_strlcat(tmp, "; rm /tmp/stdheader", ft_strlen(filepath) + 40);
+		system(tmp);
 		return (1);
 	}
 }

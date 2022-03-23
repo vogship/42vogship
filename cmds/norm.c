@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/12 22:10:46 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/23 23:45:30 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,17 @@ int	main(int c, t_str *v)
 			{
 				if (endswith(v[i], ".c"))
 				{
-					tmp = ft_strdup("norminette -R CheckForbiddenSourceHeader ");
+					tmp = (t_str) malloc(128 * sizeof(char));
+					ft_strlcat(tmp, "norminette -R CheckForbiddenSourceHeader ", 128);
 					ft_strlcat(tmp, v[i], 128);
-					vg_runp(tmp);
+					system(tmp);
 				}
 				if (endswith(v[i], ".h"))
 				{
-					tmp = ft_strdup("norminette -R CheckDefine ");
+					tmp = (t_str) malloc(128 * sizeof(char));
+					ft_strlcat(tmp, "norminette -R CheckDefine ", 128);
 					ft_strlcat(tmp, v[i], 128);
-					vg_runp(tmp);
+					system(tmp);
 				}
 			}
 			i++;

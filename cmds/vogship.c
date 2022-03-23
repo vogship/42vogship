@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vogship.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/24 16:27:57 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/24 00:28:36 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,20 @@ int	main(int c, t_str *v)
 			{
 				if (contains(v[1], 'f'))
 				{
-					tmp = vg_run("curl -s https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/versionstring -o /tmp/vogshipver; cat /tmp/vogshipver");
+					tmp = vg_run("curl -s https://raw.githubusercontent.com/vogship/42vogship/master/versionstring -o vogshipver; cat vogshipver; rm vogshipver");
 					printf("Updated to %s", tmp);
-					vg_run("git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship; clear; make all -C /tmp/vogship; rm -rf /tmp/vogship");
-					vg_run("rm -rf /tmp/vogshipver");
+					vg_run("git clone git@github.com:IsCoffeeTho/42vogship.git vogship; clear; make all -s -C vogship; rm -rf vogship");
 				}
 				else
 				{
-					tmp = vg_run("curl -s https://raw.githubusercontent.com/IsCoffeeTho/42vogship/master/versionstring -o /tmp/vogshipver; cat /tmp/vogshipver");
+					tmp = vg_run("curl -s https://raw.githubusercontent.com/vogship/42vogship/master/versionstring -o vogshipver; cat vogshipver; rm vogshipver");
 
-					if (ft_strncmp(tmp, "cat: /tmp/vogshipver: No such file or directory", 48))
+					if (ft_strncmp(tmp, "cat: vogshipver: No such file or directory", 48))
 					{
 						if (ft_strncmp(tmp, VG_VER, 20))
 						{
 							printf("Updated to %s", tmp);
-							vg_run("git clone git@github.com:IsCoffeeTho/42vogship.git /tmp/vogship; clear; make all -C /tmp/vogship; rm -rf /tmp/vogship");
+							vg_run("git clone https://github.com/vogship/42vogship.git vogship; clear; make all -C vogship; rm -rf vogship");
 						}
 						else
 						{
@@ -63,7 +62,7 @@ int	main(int c, t_str *v)
 					} else {
 						printf("Please check your internet");
 					}
-					vg_run("rm -rf /tmp/vogshipver");
+					system("rm -rf vogshipver");
 				}
 			}
 			else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   norm.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/28 18:14:43 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/12 22:10:46 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 
 const int	g_cmdindex = 7;
 
-int is_regular_file(const char *path)
+int is_directory(const char *path)
 {
     struct stat path_stat;
     stat(path, &path_stat);
-    return S_ISREG(path_stat.st_mode);
+    return S_ISDIR(path_stat.st_mode);
 }
 
 int	main(int c, t_str *v)
@@ -47,9 +47,9 @@ int	main(int c, t_str *v)
 			{
 				printf("Couldn't find %s\n", v[i]);
 			}
-			else if (!is_regular_file(v[i]))
+			else if (is_directory(v[i]))
 			{
-				line = strdup("~/.vogship/bin/norm ");
+				line = ft_strdup("~/.vogship/bin/norm ");
 				ft_strlcat(line, v[i], 128);
 				ft_strlcat(line, "/*", 128);
 				vg_runp(line);

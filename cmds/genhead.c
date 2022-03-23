@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   genhead.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/28 18:37:47 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/23 22:22:00 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,22 @@
 
 const int	g_cmdindex = 4;
 
-int is_regular_file(const char *path)
+int	str_loc_char(const t_str str, char c)
+{
+	int	i = 0;
+	int sl = ft_strlen(str);
+
+	while (i < sl)
+		if (str[i++] == c)
+			break ;
+	return (i-1);
+}
+
+int is_directory(const char *path)
 {
     struct stat path_stat;
     stat(path, &path_stat);
-    return S_ISREG(path_stat.st_mode);
+    return S_ISDIR(path_stat.st_mode);
 }
 
 int hasfileext(t_str file, t_str set)
@@ -89,12 +100,14 @@ int	main(int c, t_str *v)
 			{
 				printf("Couldn't find %s\n", v[i]);
 			}
-			else if (!is_regular_file(v[i]))
+			else if (is_directory(v[i]))
 			{
-				line = strdup("~/.vogship/bin/genhead ");
-				ft_strlcat(line, v[i], 128);
-				ft_strlcat(line, "/*", 128);
-				vg_runp(line);
+				line = (char *) ft_calloc(1024, sizeof(char));
+				ft_strlcat(line, "~/.vogship/bin/genhead ", 1024);
+				ft_strlcat(line, v[i], 1024);
+				ft_strlcat(line, "/*", 1024);
+				system(line);
+				free(line);
 			}
 			else 
 			{
@@ -147,7 +160,7 @@ int	main(int c, t_str *v)
 					end = ft_strdup("!");
 					proceed = 1;
 				}
-				else if (hasfileext(v[i], "sh") || endswith(v[i], "Makefile"))
+				else if (hasfileext(v[i], "sh") || !ft_strncmp(v[i], "Makefile", 9))
 				{
 					start = ft_strdup("#");
 					end = ft_strdup("#");
@@ -164,7 +177,7 @@ int	main(int c, t_str *v)
 					}
 
 					while (getline(&line, &len, fp) != -1) {
-						line[strcspn(line, "\n")] = 0;
+						line[str_loc_char(line, '\n')] = 0;
 						if (startswith(line, start)) {
 							if (endswith(line, end)) {
 								if (regex(line, "By: !"))
@@ -188,9 +201,10 @@ int	main(int c, t_str *v)
 					fclose(fp);
 
 					if (flag < 5) {
-						line = ft_strdup("vim -c \"Stdheader\" -c \"wq\" ");
-						ft_strlcat(line, v[i], 128);
-						ft_strlcat(line, " 2>/dev/null || true", 128);
+						line = (char *) ft_calloc(1024, sizeof(char));
+						ft_strlcat(line, "vim -c \"Stdheader\" -c \"wq\" ", 1024);
+						ft_strlcat(line, v[i], 1024);
+						ft_strlcat(line, " 2>/dev/null || true", 1024);
 						system(line);
 						printf("%s: Generated!\n", v[i]);
 						if (line != NULL)

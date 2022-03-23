@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vogship.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/28 18:31:11 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/12 21:54:44 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define VOGSHIP_H
 
 # include "../libft/libft.h"
+# include <stdio.h>
 
 # define VG_VER "v2.0 Turbo p(0.0.1)"
 # define VG_AUTHOR "Aaron Menadue"

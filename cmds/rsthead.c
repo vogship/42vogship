@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rsthead.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/02/28 18:25:16 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/23 22:49:52 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,22 @@
 
 const int	g_cmdindex = 5;
 
-int is_regular_file(const char *path)
+int	str_loc_char(const t_str str, char c)
+{
+	int	i = 0;
+	int sl = ft_strlen(str);
+
+	while (i < sl)
+		if (str[i++] == c)
+			break ;
+	return (i-1);
+}
+
+int is_directory(const t_str path)
 {
     struct stat path_stat;
     stat(path, &path_stat);
-    return S_ISREG(path_stat.st_mode);
+    return S_ISDIR(path_stat.st_mode);
 }
 
 int hasfileext(t_str file, t_str set)
@@ -39,8 +50,9 @@ int hasfileext(t_str file, t_str set)
 	{
 		if (set[i] == ' ')
 		{
-			ext = ft_strdup(".");
-			ft_strlcat(ext, buf, j+2);
+			ext = (t_str) malloc((j+2) * sizeof(char));
+			ft_strlcat(ext, ".", 1);
+			ft_strlcat(ext, buf, j);
 			if (endswith(file, ext))
 				return (1);
 			ft_bzero(buf, setlen);
@@ -58,6 +70,7 @@ int hasfileext(t_str file, t_str set)
 
 int	main(int c, t_str *v)
 {
+	t_str	fordir;
 	t_str	tmp;
 	t_str	line;
 	int		flag;
@@ -84,16 +97,18 @@ int	main(int c, t_str *v)
 	{
 		while (i < c)
 		{
-			tmp = ft_strdup("ls ");
+			tmp = (t_str) ft_calloc(128 , sizeof(char));
+			ft_strlcat(tmp, "ls ", 128);
 			ft_strlcat(tmp, v[i], 128);
 			line = vg_run(tmp);
 			if (endswith(line, "No such file or directory"))
 			{
 				printf("Couldn't find %s\n", v[i]);
 			}
-			else if (!is_regular_file(v[i]))
+			else if (is_directory(v[i]))
 			{
-				line = strdup("~/.vogship/bin/rsthead ");
+				line = (t_str) malloc(128 * sizeof(char));
+				ft_strlcat(line, "~/.vogship/bin/rsthead ", 128);
 				ft_strlcat(line, v[i], 128);
 				ft_strlcat(line, "/*", 128);
 				vg_runp(line);
@@ -155,6 +170,10 @@ int	main(int c, t_str *v)
 					end = ft_strdup("#");
 					proceed = 1;
 				}
+				else
+				{
+					
+				}
 
 				if (proceed)
 				{
@@ -174,7 +193,7 @@ int	main(int c, t_str *v)
 					line = (t_str) malloc(512 * sizeof(char));
 					while (fgets(line, 512, fp) != NULL)
 					{
-						line[strcspn(line, "\n")] = 0;
+						line[str_loc_char(line, '\n')] = 0;
 						if (start_writing)
 						{
 							fprintf(nfp, "%s\n", line);
@@ -197,18 +216,18 @@ int	main(int c, t_str *v)
 					fclose(nfp);
 					if (flag >= 11)
 					{
-						line = ft_strdup("mv vgrmheader ");
+						line = (t_str) ft_calloc(128, sizeof(char));
+						ft_strlcat(line, "mv vgrmheader ", 128);
 						ft_strlcat(line, v[i], 128);
-						vg_run(line);
+						system(line);
 						printf("%s: Removed header!\n", v[i]);
-						if (line != NULL)
-							free(line);
+						free(line);
 					}
 					else 
 					{
 						printf("%s: Has no header!\n", v[i]);
 					}
-					vg_run("rm -rf vgrmheader");
+					system("rm -rf vgrmheader");
 				}
 			}
 			i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vg_stdheader.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:29:51 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/10 14:21:51 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/12 22:10:12 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,6 @@ t_str	stdhd_tformat()
 		return (NULL);
 	sprintf(timefmt, "%04d/%02d/%02d %02d:%02d:%02d", tm.tm_year+1900, tm.tm_mon+1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
 	return ((t_str) timefmt);
-}
-
-int is_regular_file(const char *path)
-{
-    struct stat path_stat;
-    stat(path, &path_stat);
-    return S_ISREG(path_stat.st_mode);
 }
 
 t_str crepeat(char c, int n)

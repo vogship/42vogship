@@ -4,4 +4,4 @@
 	- Extend variables from engine to user.
 - Only put one line to source vogship in bashrc instead of as many as install runs.
 - Fix rsthead and genhead synergy.
-	- Remove the new line put uner the `:Stdheader`.
+	- Remove the new line put under the `:Stdheader`.

@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:29:51 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/24 00:37:07 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/24 09:58:30 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,12 @@ t_str text_line(t_str left, t_str right)
 	int marginright;
 	int marginend;
 
-	line = (t_str) malloc(STDHEADER_LENGTH+1 * sizeof(char));
+	line = (t_str) ft_calloc(STDHEADER_LENGTH+1, sizeof(char));
 	ft_strlcat(line, start, STDHEADER_MARGIN);
 	marginend = STDHEADER_LENGTH - ft_strlen(end);
 	marginright = STDHEADER_LENGTH - STDHEADER_MARGIN;
 	marginmid = marginright - ft_strlen(right);
 	marginleft = STDHEADER_MARGIN + ft_strlen(left);
-
-	ft_strlcat(left, "!", ft_strlen(left) + 1);
 
 	buf = crepeat(' ', STDHEADER_MARGIN);
 	ft_strlcat(line, buf, STDHEADER_MARGIN+1);
@@ -161,12 +159,17 @@ int		vg_stdheader(t_str filepath)
 	}
 	else
 	{
-		header = (t_str) malloc((STDHEADER_LENGTH * 12) * sizeof(char));
+		header = (t_str) ft_calloc((STDHEADER_LENGTH * 12), sizeof(char));
 		if (header == NULL)
 			return (0);
 
 		fp = fopen(filepath, "r");
-		fpt = fopen(filepath, "w");
+		fpt = fopen("vogshipstdheader", "w");
+		if (!fp | !fpt)
+		{
+			fprintf(stderr, "An error occured when openening files.\n");
+			exit(1);
+		}
 
 		filled = fill_line();
 		sprintf(header, "%s", filled);
@@ -174,7 +177,7 @@ int		vg_stdheader(t_str filepath)
 		sprintf(header, "%s%s", header, text_line("", ascii_art[0]));
 		sprintf(header, "%s%s", header, text_line(filepath, ascii_art[1]));
 		sprintf(header, "%s%s", header, text_line("", ascii_art[2]));
-		tmp = (char *) calloc(STDHEADER_LENGTH, sizeof(char));
+		tmp = (char *) ft_calloc(STDHEADER_LENGTH+1, sizeof(char));
 		if (tmp == NULL)
 			return (0);
 		sprintf(tmp, "By: %s <%s>", stdhd_user(), stdhd_mail());
@@ -186,17 +189,17 @@ int		vg_stdheader(t_str filepath)
 		sprintf(header, "%s%s", header, text_line(tmp, ascii_art[6]));
 		sprintf(header, "%s%s", header, text_line("", ""));
 		sprintf(header, "%s%s\n", header, filled);
+		fputs(header,fpt);
 		while (0)
 		{
 			c = fgetc(fp);
 			fputc(c, fpt);
 			if (feof(fp))
-				break;
+				break ;
 		}
-		tmp = (t_str) malloc(128 * sizeof(char));
-		ft_strlcat(tmp, "cp /tmp/stdheader ", 19);
-		ft_strlcat(tmp, filepath, 20 + ft_strlen(filepath));
-		ft_strlcat(tmp, "; rm /tmp/stdheader", ft_strlen(filepath) + 40);
+		tmp = (t_str) ft_calloc(43 + ft_strlen(filepath), sizeof(char));
+		ft_strlcat(tmp, "mv -f vogshipstdheader ", 24);
+		ft_strlcat(tmp, filepath, 25 + ft_strlen(filepath));
 		system(tmp);
 		return (1);
 	}

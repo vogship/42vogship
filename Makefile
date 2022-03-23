@@ -6,21 +6,15 @@
 #    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/08 23:46:33 by amenadue          #+#    #+#              #
-#    Updated: 2022/03/23 22:34:38 by amenadue         ###   ########.fr        #
+#    Updated: 2022/03/24 10:03:46 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-#	This Makefile is self-destructive
-#
-#	After Installing vogship the directory will autoremove itself
-#	
 
 COMMANDS =	vogship \
 			clsyc \
 			genhead \
 			rsthead \
-			norm \
-			stdheader
+			norm
 
 CC =		gcc
 
@@ -77,7 +71,7 @@ all:
 	-@$(MAKE) all -s -C libvg 2>/dev/null || true
 	-@cp libvg/libvg.a libvg.a 2>/dev/null || true
 	-@printf "\e[uCompiling...\e[K\e[E\e[E   \e[31m()\e[0m\n\n"
-	-@$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a libft.a -g3 -o ~/.vogship/bin/$(COMMAND);)
+	-@$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a libft.a -o ~/.vogship/bin/$(COMMAND);)
 	-@printf "\e[uRegistering Commands...\e[K\e[E\e[E  \e[93m(\e[91m)(\e[93m)\e[0m\n   \e[93m||\e[0m\n"
 	-@cp -r man/ ~/.vogship/man/
 	-@cp shell/vogship.sh ~/.vogship/vogship.sh
@@ -91,11 +85,11 @@ verbose:
 	mkdir ~/.vogship
 	mkdir ~/.vogship/bin
 	mkdir ~/.vogship/man
-	$(MAKE) all -C libft
+	$(MAKE) verbose -C libft
 	cp libft/libft.a libft.a
-	$(MAKE) all -C libvg
+	$(MAKE) verbose -C libvg
 	cp libvg/libvg.a libvg.a
-	$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a libft.a -o ~/.vogship/bin/$(COMMAND);)
+	$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a libft.a -g3 -o ~/.vogship/bin/$(COMMAND);)
 	cp -r man/ ~/.vogship/man/
 	cp shell/vogship.sh ~/.vogship/vogship.sh
 	$(if $(shell grep "source ~\/\.vogship\/vogship\.sh" ~/.bashrc),,printf "source ~/.vogship/vogship.sh" >> ~/.bashrc)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+         #
+#    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/08 23:46:33 by amenadue          #+#    #+#              #
-#    Updated: 2022/02/28 18:56:06 by amenadue         ###   ########.fr        #
+#    Updated: 2022/03/24 08:06:25 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,10 @@ else
 endif
 
 OBJS = $(FILES:.c=.o)
+
+verbose:
+	-@gcc -g3 -c $(FILES)
+	-@ar -rcs $(NAME).a $(OBJS)
 
 all: fclean
 	-@gcc -c $(FILES)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amenadue <iscoffee.learning@gmail.c>       +#+  +:+       +#+         #
+#    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 17:55:39 by amenadue          #+#    #+#              #
-#    Updated: 2021/09/17 15:14:39 by amenadue         ###   ########.fr        #
+#    Updated: 2022/03/24 08:08:29 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,10 +64,14 @@ OFILES	= $(files:%=%.o)
 NAME	= $(OUTN)
 
 $(NAME):
-	$(Compiler) $(CmpFlags) -c $(CFILES) -I./
+	$(Compiler) $(CmpFlags) -c $(CFILES)
 	ar -rc $(OUTN) $(OFILES)
 
 all: $(NAME)
+
+verbose:fclean
+	-@$(Compiler) $(CmpFlags) -g3 -c $(CFILES) -I./
+	-@ar -rcs $(OUTN) $(OFILES)
 
 clean:
 	rm -f $(NAME)

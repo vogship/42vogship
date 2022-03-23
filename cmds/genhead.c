@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/23 22:22:00 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:03:22 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int hasfileext(t_str file, t_str set)
 	i = 0;
 	j = 0;
 	setlen = ft_strlen(set);
-	buf = (t_str) malloc(setlen * sizeof(char));
+	buf = (t_str) ft_calloc(setlen, sizeof(char));
 	while (i < setlen)
 	{
 		if (set[i] == ' ' || set[i] == '\0')
@@ -93,7 +93,8 @@ int	main(int c, t_str *v)
 	{
 		while (i < c)
 		{
-			tmp = ft_strdup("ls ");
+			tmp = (t_str) ft_calloc(128, sizeof(char));
+			ft_strlcat(tmp, "ls ", 128);
 			ft_strlcat(tmp, v[i], 128);
 			line = vg_run(tmp);
 			if (endswith(line, "No such file or directory"))
@@ -201,11 +202,7 @@ int	main(int c, t_str *v)
 					fclose(fp);
 
 					if (flag < 5) {
-						line = (char *) ft_calloc(1024, sizeof(char));
-						ft_strlcat(line, "vim -c \"Stdheader\" -c \"wq\" ", 1024);
-						ft_strlcat(line, v[i], 1024);
-						ft_strlcat(line, " 2>/dev/null || true", 1024);
-						system(line);
+						vg_stdheader(v[i]);
 						printf("%s: Generated!\n", v[i]);
 						if (line != NULL)
 							free(line);

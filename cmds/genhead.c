@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/24 10:09:09 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/24 10:54:56 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ int hasfileext(t_str file, t_str set)
 	{
 		if (set[i] == ' ' || set[i] == '\0')
 		{
-			ext = (t_str) ft_calloc(j+1, sizeof(char));
-			ft_strlcat(ext, ".", j+1);
-			ft_strlcat(ext, buf, j+1);
+			ext = (t_str) ft_calloc(j+2, sizeof(char));
+			ft_strlcat(ext, ".", j+2);
+			ft_strlcat(ext, buf, j+2);
 			if (endswith(file, ext))
 				return (1);
 			ft_bzero(buf, setlen);
@@ -82,7 +82,7 @@ int	main(int c, t_str *v)
 
     FILE    *fp;
 	int	i;
-	
+
 	i = 1;
 	if (c == 1)
 	{

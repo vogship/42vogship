@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/24 07:55:16 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/24 13:00:26 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int	main(int c, t_str *v)
 	{
 		while (i < c)
 		{
-			tmp = ft_strdup("ls ");
+			tmp = (t_str) ft_calloc(128, sizeof(char));
+			ft_strlcat(tmp, "ls  ", 128);
 			ft_strlcat(tmp, v[i], 128);
 			line = vg_run(tmp);
 			if (endswith(line, "No such file or directory"))
@@ -49,23 +50,24 @@ int	main(int c, t_str *v)
 			}
 			else if (is_directory(v[i]))
 			{
-				line = ft_strdup("~/.vogship/bin/norm ");
+				line = (t_str) ft_calloc(128, sizeof(char));
+				ft_strlcat(line, "~/.vogship/bin/norm ", 128);
 				ft_strlcat(line, v[i], 128);
 				ft_strlcat(line, "/*", 128);
-				vg_runp(line);
+				system(line);
 			}
 			else
 			{
 				if (endswith(v[i], ".c"))
 				{
-					tmp = (t_str) malloc(128 * sizeof(char));
+					tmp = (t_str) ft_calloc(128, sizeof(char));
 					ft_strlcat(tmp, "norminette -R CheckForbiddenSourceHeader ", 128);
 					ft_strlcat(tmp, v[i], 128);
 					system(tmp);
 				}
 				if (endswith(v[i], ".h"))
 				{
-					tmp = (t_str) malloc(128 * sizeof(char));
+					tmp = (t_str) ft_calloc(128, sizeof(char));
 					ft_strlcat(tmp, "norminette -R CheckDefine ", 128);
 					ft_strlcat(tmp, v[i], 128);
 					system(tmp);
@@ -73,7 +75,6 @@ int	main(int c, t_str *v)
 			}
 			i++;
 		}
-
 	}
 	return (0);
 }

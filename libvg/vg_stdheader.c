@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:29:51 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/24 13:29:31 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/24 13:42:00 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_str	stdhd_tformat()
 	t_str timefmt;
 	time_t t = time(NULL);
 	struct tm tm = *localtime(&t);
-	timefmt = (t_str) malloc(20 * sizeof(char));
+	timefmt = (t_str) ft_calloc(20, sizeof(char));
 	if (timefmt == NULL)
 		return (NULL);
 	sprintf(timefmt, "%04d/%02d/%02d %02d:%02d:%02d", tm.tm_year+1900, tm.tm_mon+1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
@@ -55,7 +55,7 @@ t_str crepeat(char c, int n)
 	t_str	tmp;
 	int 	i;
 
-	tmp = (t_str) malloc((n + 1) * sizeof(char));
+	tmp = (t_str) ft_calloc((n + 1), sizeof(char));
 	i = 0;
 	while (i < n)
 		tmp[i++] = c;
@@ -97,7 +97,7 @@ t_str fill_line()
 	t_str	tmp;
 	int		fillwidth;
 
-	line = (t_str) malloc((STDHEADER_LENGTH+1) * sizeof(char));
+	line = (t_str) ft_calloc((STDHEADER_LENGTH+1), sizeof(char));
 	ft_strlcat(line, start, STDHEADER_MARGIN);
 	fillwidth = STDHEADER_LENGTH - ft_strlen(end) - ft_strlen(start) - 2;
 	ft_strlcat(line, " ", STDHEADER_LENGTH+1);

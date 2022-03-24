@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/24 13:18:10 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/24 13:40:45 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,9 @@ int	main(int c, t_str *v)
 			else if (is_directory(v[i]))
 			{
 				line = (char *) ft_calloc(1024, sizeof(char));
-				ft_strlcat(line, "~/.vogship/bin/genhead ", 1024);
+				ft_strlcat(line, "cd ", 1024);
 				ft_strlcat(line, v[i], 1024);
-				ft_strlcat(line, "/*", 1024);
+				ft_strlcat(line, "; ~/.vogship/bin/genhead *; cd ..", 1024);
 				system(line);
 				free(line);
 			}

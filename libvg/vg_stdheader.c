@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:29:51 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/24 13:42:00 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/24 13:54:58 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,17 +192,17 @@ int		vg_stdheader(t_str filepath)
 		fseek(fpt, 0, SEEK_SET);
 		fseek(fp, 0, SEEK_SET);
 		fputs(header, fpt);
-		while (0)
+		while (1)
 		{
-			c = fgetc(fp);
-			fputc(c, fpt);
 			if (feof(fp))
 				break ;
+			c = fgetc(fp);
+			fputc(c, fpt);
 		}
 		fclose(fp);
 		fclose(fpt);
 		tmp = (t_str) ft_calloc(43 + ft_strlen(filepath), sizeof(char));
-		ft_strlcat(tmp, "mv -f vogshipstdheader ", 24);
+		ft_strlcat(tmp, "mv vogshipstdheader ", 21);
 		ft_strlcat(tmp, filepath, 25 + ft_strlen(filepath));
 		system(tmp);
 		return (1);

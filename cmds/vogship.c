@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/24 07:55:22 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/24 15:04:18 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int c, t_str *v)
 				{
 					tmp = vg_run("curl -s https://raw.githubusercontent.com/vogship/42vogship/master/versionstring -o vogshipver; cat vogshipver; rm vogshipver");
 					printf("Updated to %s", tmp);
-					vg_run("git clone git@github.com:IsCoffeeTho/42vogship.git vogship; clear; make all -s -C vogship; rm -rf vogship");
+					vg_run("git clone https://github.com/vogship/42vogship.git vogship; clear; make all -s -C vogship; rm -rf vogship");
 				}
 				else
 				{

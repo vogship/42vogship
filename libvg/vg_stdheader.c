@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 18:29:51 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/24 09:58:30 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/03/24 13:29:31 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,7 +189,9 @@ int		vg_stdheader(t_str filepath)
 		sprintf(header, "%s%s", header, text_line(tmp, ascii_art[6]));
 		sprintf(header, "%s%s", header, text_line("", ""));
 		sprintf(header, "%s%s\n", header, filled);
-		fputs(header,fpt);
+		fseek(fpt, 0, SEEK_SET);
+		fseek(fp, 0, SEEK_SET);
+		fputs(header, fpt);
 		while (0)
 		{
 			c = fgetc(fp);
@@ -197,6 +199,8 @@ int		vg_stdheader(t_str filepath)
 			if (feof(fp))
 				break ;
 		}
+		fclose(fp);
+		fclose(fpt);
 		tmp = (t_str) ft_calloc(43 + ft_strlen(filepath), sizeof(char));
 		ft_strlcat(tmp, "mv -f vogshipstdheader ", 24);
 		ft_strlcat(tmp, filepath, 25 + ft_strlen(filepath));

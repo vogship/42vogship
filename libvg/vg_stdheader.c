@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/28 18:29:51 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/24 13:54:58 by amenadue         ###   ########.fr       */
+/*   Created: 2022/03/24 14:58:39 by coffee            #+#    #+#             */
+/*   Updated: 2022/03/24 15:00:14 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,9 +194,9 @@ int		vg_stdheader(t_str filepath)
 		fputs(header, fpt);
 		while (1)
 		{
-			if (feof(fp))
-				break ;
 			c = fgetc(fp);
+			if (c == EOF)
+				break ;
 			fputc(c, fpt);
 		}
 		fclose(fp);

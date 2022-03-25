@@ -13,14 +13,12 @@ The Vogship allows you to navigate the vogsphere a lot more freely so you can fo
 #### Dependencies
 
 - [Norminette](https://github.com/42School/norminette "42 Norminette")
-- [42header](https://github.com/42Paris/42header "42header vim plugin")
 
 ### Installing
 one liner:  
 ```sh
 git clone https://github.com/vogship/42vogship.git vogship; make all -C vogship; rm -rf vogship; source ~/.bashrc
 ```  
-  
 line by line:
 ```sh
 git clone https://github.com/vogship/42vogship.git vogship
@@ -30,10 +28,6 @@ source ~/.bashrc
 ```
 
 Install location: `~/.vogship/`
-
-## Updates
-Updates:
-Fixed some issues that mac run
 
 ## Commands
 The Vogship adds the following commands:
@@ -47,8 +41,5 @@ The Vogship adds the following commands:
 - `norm <file/files>` Checks the files through 'The Norminette' both file types run with specific flags.
 - `vogship <flags>` Main command with limited features.
 
-**Legacy Commands**
-- `updateVogship` ___v1.2.0___ Runs Installer if there is a new update. \[Eqv `vogship -u`\]
-
 ***Coming Soon***
-- `vpm <package name>` Vogship Package Manager ran by students from around the world (hopefully).
+- `vspm <package name>` see [VSPM](https://github.com/vogship/vspm) repository

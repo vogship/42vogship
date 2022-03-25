@@ -6,7 +6,7 @@
 #    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/08 23:46:33 by amenadue          #+#    #+#              #
-#    Updated: 2022/03/24 10:03:46 by amenadue         ###   ########.fr        #
+#    Updated: 2022/03/25 10:59:32 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,15 +65,16 @@ all:
 	-@rm -rf ~/.vogship 2>/dev/null || true
 	-@mkdir ~/.vogship 2>/dev/null || true
 	-@mkdir ~/.vogship/bin 2>/dev/null || true
-	-@mkdir ~/.vogship/man 2>/dev/null || true
 	-@$(MAKE) all -s -C libft 2>/dev/null || true
 	-@cp libft/libft.a libft.a 2>/dev/null || true
+	-@$(MAKE) all -s -C libpm 2>/dev/null || true
+	-@cp libpm/libpm.a libpm.a 2>/dev/null || true
 	-@$(MAKE) all -s -C libvg 2>/dev/null || true
 	-@cp libvg/libvg.a libvg.a 2>/dev/null || true
 	-@printf "\e[uCompiling...\e[K\e[E\e[E   \e[31m()\e[0m\n\n"
 	-@$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a libft.a -o ~/.vogship/bin/$(COMMAND);)
 	-@printf "\e[uRegistering Commands...\e[K\e[E\e[E  \e[93m(\e[91m)(\e[93m)\e[0m\n   \e[93m||\e[0m\n"
-	-@cp -r man/ ~/.vogship/man/
+	-@cp -r man ~/.vogship/
 	-@cp shell/vogship.sh ~/.vogship/vogship.sh
 	-@$(if $(shell grep "source ~\/\.vogship\/vogship\.sh" ~/.bashrc),,@printf "source ~/.vogship/vogship.sh" >> ~/.bashrc)
 	-@$(if $(shell grep "source ~\/\.vogship\/vogship\.sh" ~/.zshrc),,@printf "source ~/.vogship/vogship.sh" >> ~/.zshrc)
@@ -84,13 +85,12 @@ verbose:
 	rm -rf ~/.vogship
 	mkdir ~/.vogship
 	mkdir ~/.vogship/bin
-	mkdir ~/.vogship/man
 	$(MAKE) verbose -C libft
 	cp libft/libft.a libft.a
 	$(MAKE) verbose -C libvg
 	cp libvg/libvg.a libvg.a
 	$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a libft.a -g3 -o ~/.vogship/bin/$(COMMAND);)
-	cp -r man/ ~/.vogship/man/
+	cp -r man ~/.vogship/
 	cp shell/vogship.sh ~/.vogship/vogship.sh
 	$(if $(shell grep "source ~\/\.vogship\/vogship\.sh" ~/.bashrc),,printf "source ~/.vogship/vogship.sh" >> ~/.bashrc)
 	$(if $(shell grep "source ~\/\.vogship\/vogship\.sh" ~/.zshrc),,printf "source ~/.vogship/vogship.sh" >> ~/.zshrc)

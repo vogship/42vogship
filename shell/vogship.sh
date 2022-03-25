@@ -19,7 +19,7 @@
 
 # Command forwarding
 
-export MANPATH=$(manpath):~/.vogship/man
+alias man='man -M ~/.vogship/man:$(manpath)'
 
 vogship() {
 	~/.vogship/bin/vogship $@ 

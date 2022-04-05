@@ -5,8 +5,9 @@
  /____  | | |/|  █  Vogship
       | |                      Made By Developers for Developers
 ```
-## Changelog v2.0 Turbo p0.0.3
-- Fixed issues for running on mac
+## Changelog v2.0 Turbo p0.0.4
+- Cleaned up Code and spelling mistakes and print issues.
+- Gave the rocket better fuel.
 
 ## Changelog v2.0 Turbo
 - Switched everything over to C for speed.

@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/03/24 07:55:18 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/04/05 21:06:43 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,11 +181,13 @@ int	main(int c, t_str *v)
 					start_writing = 0;
 					fp = fopen(v[i], "r");
 					nfp = fopen("vgrmheader", "w");
-					if (!fp) {
+					if (!fp)
+					{
 						fprintf(stderr, "Failed to open %s\n", v[i]);
 						return (1);
 					}
-					if (!nfp) {
+					if (!nfp)
+					{
 						fprintf(stderr, "Failed to open %s\n", v[i]);
 						return (1);
 					}

@@ -6,7 +6,7 @@
 #    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/08 23:46:33 by amenadue          #+#    #+#              #
-#    Updated: 2022/03/25 10:59:32 by amenadue         ###   ########.fr        #
+#    Updated: 2022/04/05 19:12:58 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,11 +56,9 @@ endif
 INCLDS = $(INCLUDES:%=includes/%)
 
 all:
-	-@printf "\e[31m   /\    \e[0m\n"
-	-@printf "\e[31m  /__\   \e[0m\n"
-	-@printf "\e[90m  |\e[0m42\e[90m|   \e[0mVogship\n"
-	-@printf "\e[90m /|/\|\  \e[0m\e[s\n"
-	-@printf "\e[90m/_||||_\ \e[0m\n"
+	-@make rocket1 -s
+	-@printf "\n"
+	-@make rocket2 -s
 	-@printf "\n\n\n"
 	-@rm -rf ~/.vogship 2>/dev/null || true
 	-@mkdir ~/.vogship 2>/dev/null || true
@@ -71,15 +69,24 @@ all:
 	-@cp libpm/libpm.a libpm.a 2>/dev/null || true
 	-@$(MAKE) all -s -C libvg 2>/dev/null || true
 	-@cp libvg/libvg.a libvg.a 2>/dev/null || true
-	-@printf "\e[uCompiling...\e[K\e[E\e[E   \e[31m()\e[0m\n\n"
-	-@$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a libft.a -o ~/.vogship/bin/$(COMMAND);)
-	-@printf "\e[uRegistering Commands...\e[K\e[E\e[E  \e[93m(\e[91m)(\e[93m)\e[0m\n   \e[93m||\e[0m\n"
+	-@make rocket1 -s
+	-@printf "Compiling...\n"
+	-@make rocket2 -s
+	-@printf "   \e[31m()\e[0m\n\n"
+	-@$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a libft.a -o ~/.vogship/bin/$(COMMAND) 2>/dev/null || true;)
+	-@make rocket1 -s
+	-@printf "Registering Commands...\n"
+	-@make rocket2 -s
+	-@printf "  \e[93m(\e[91m)(\e[93m)\e[0m\n   \e[93m||\e[0m\n"
 	-@cp -r man ~/.vogship/
 	-@cp shell/vogship.sh ~/.vogship/vogship.sh
 	-@$(if $(shell grep "source ~\/\.vogship\/vogship\.sh" ~/.bashrc),,@printf "source ~/.vogship/vogship.sh" >> ~/.bashrc)
 	-@$(if $(shell grep "source ~\/\.vogship\/vogship\.sh" ~/.zshrc),,@printf "source ~/.vogship/vogship.sh" >> ~/.zshrc)
 	-@$(source ~/.vogship/vogship.sh)
-	-@printf "\e[uInstalled!\e[K\e[E\e[E  \e[93m|\e[91m)(\e[93m|\e[0m\n   \e[93m||\e[0m\n"
+	-@make rocket1 -s
+	-@printf "Installed!\n"
+	-@make rocket2 -s
+	-@printf "  \e[93m|\e[91m)(\e[93m|\e[0m\n   \e[93m||\e[0m\n"
 
 verbose:
 	rm -rf ~/.vogship
@@ -97,6 +104,16 @@ verbose:
 	$(source ~/.vogship/vogship.sh)
 
 v: verbose
+
+rocket1:
+	-@clear
+	-@printf "\e[31m   /\    \e[0m\n"
+	-@printf "\e[31m  /__\   \e[0m\n"
+	-@printf "\e[90m  |\e[0m42\e[90m|   \e[0mVogship\n"
+	-@printf "\e[90m /|/\|\  \e[0m"
+
+rocket2:
+	-@printf "\e[90m/_||||_\ \e[0m\n"
 
 clean:
 	-@$(MAKE) clean -s -C libft 2>/dev/null || true

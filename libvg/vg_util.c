@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vg_util.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/26 14:09:18 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/04/05 21:19:42 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ int	startswith(const t_str s, const t_str w)
 		while (i < wl)
 		{
 			if (s[i] != w[i])
-			{
 				return (0);
-			}
 			i++;
 		}
 		return (1);
@@ -50,9 +48,7 @@ int	endswith(const t_str s, const t_str w)
 		while (i < wl + 1)
 		{
 			if (s[sl - i] != w[wl - i])
-			{
 				return (0);
-			}
 			i++;
 		}
 		return (1);
@@ -70,9 +66,7 @@ int	contains(t_str s, char l)
 	while (i < sl)
 	{
 		if (s[i] == l)
-		{
 			return (1);
-		}
 		i++;
 	}
 	return (0);

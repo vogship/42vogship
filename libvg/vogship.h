@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/03/24 00:28:44 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/04/05 18:58:50 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "../libft/libft.h"
 # include <stdio.h>
 
-# define VG_VER "v2.0 Turbo p(0.0.3)"
+# define VG_VER "v2.0 Turbo p(0.0.4)"
 # define VG_AUTHOR "Aaron Menadue"
 
 typedef char*	t_str;

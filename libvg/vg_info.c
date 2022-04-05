@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/02/09 20:05:01 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/04/05 21:13:49 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,5 @@ void	vg_contributors(void)
 	i = 0;
 	printf("\e[96mContributions from:\e[0m\n");
 	while (g_vg_contributors[i])
-	{
-		printf("    %s\n", g_vg_contributors[i]);
-		i++;
-	}
+		printf("    %s\n", g_vg_contributors[i++]);
 }

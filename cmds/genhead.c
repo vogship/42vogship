@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/04/05 11:41:47 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/04/05 21:11:50 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,7 @@ int	main(int c, t_str *v)
 			ft_strlcat(tmp, v[i], 128);
 			line = vg_run(tmp);
 			if (endswith(line, "No such file or directory"))
-			{
 				printf("Couldn't find %s\n", v[i]);
-			}
 			else if (is_directory(v[i]))
 			{
 				line = (char *) ft_calloc(1024, sizeof(char));
@@ -173,15 +171,19 @@ int	main(int c, t_str *v)
 				{
 					flag = 0;
 					fp = fopen(v[i], "r");
-					if (!fp) {
+					if (!fp)
+					{
 						fprintf(stderr, "Failed to open %s\n", v[i]);
 						return (1);
 					}
 
-					while (getline(&line, &len, fp) != -1) {
+					while (getline(&line, &len, fp) != -1)
+					{
 						line[str_loc_char(line, '\n')] = 0;
-						if (startswith(line, start)) {
-							if (endswith(line, end)) {
+						if (startswith(line, start))
+						{
+							if (endswith(line, end))
+							{
 								if (regex(line, "By: !"))
 									if (regex(line, "! <!"))
 										flag++;
@@ -193,23 +195,24 @@ int	main(int c, t_str *v)
 									flag++;
 								if (regex(line, "///////////////////////////////////////////////////"))
 									flag++;
-							} else {
-								break;
 							}
-						} else {
-							break;
+							else
+								break;
 						}
+						else
+							break;
 					}
 					fclose(fp);
 
-					if (flag < 5) {
+					if (flag < 5)
+					{
 						vg_stdheader(v[i]);
 						printf("%s: Generated!\n", v[i]);
 						if (line != NULL)
 							free(line);
-					} else {
-						printf("%s: Already has :Stdheader!\n", v[i]);
 					}
+					else
+						printf("%s: Already has :Stdheader!\n", v[i]);
 				}
 			}
 			i++;

@@ -23,3 +23,7 @@
   - cmorris
   - CJ\_M#8852
   - [cobym2012@gmail.com](mailto:cobym2012@gmail.com)
+- Hope Lucas (Documentation)
+  - hlucas
+  - hopeisnotbread#6574
+  - [hlucas@student.42adel.org.au](mailto:hlucas@student.42adel.org.au)

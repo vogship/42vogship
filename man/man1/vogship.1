@@ -1,4 +1,4 @@
-.TH vogship 1 "October 13, 2021"
+.TH vogship 1 "April 5, 2022"
 .LO 1
 .SH NAME
 vogship \- 42 Vogship Home Command
@@ -8,8 +8,12 @@ vogship \- 42 Vogship Home Command
 .RB [\-flags]
 
 .SH FLAGS
-.BR -v
+.BR -v[c[s]]
 shows the version of the vogship you are running.
+.BR c
+compares the installed version with current version.
+.BR s
+silences if the installed version is up to date.
 
 .BR -h
 shows a list of commands you can use and a little information about each one.
@@ -37,5 +41,6 @@ Aaron Menadue <amenadue@student.42adel.org.au> is the Lead Developer of '42 Vogs
 .BR cls (1),
 .BR compile (1),
 .BR genhead (1),
+.BR rsthead (1),
 .BR medir (1),
 .BR norm (1)

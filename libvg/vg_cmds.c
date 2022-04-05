@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/04/05 11:40:30 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/04/05 19:19:55 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ const t_vgcmd	g_cmdlist[VG_COMMAND_COUNT] = {
 {
 	.cmd = "vogship",
 	.cmdflgs = "<flags>",
-	.desc = "The Vogship command helping you soar through 42 Shell."
+	.desc = "The Vogship command helping you soar through 42 Terminal."
 }
 };
 

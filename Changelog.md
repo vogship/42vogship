@@ -5,9 +5,6 @@
  /____  | | |/|  █  Vogship
       | |                      Made By Developers for Developers
 ```
-## Upcoming Features
-- Student Upkept Package Manager
-
 ## Changelog v2.0 Turbo p0.0.3
 - Fixed issues for running on mac
 

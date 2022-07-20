@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/04/05 21:10:31 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/07/20 23:55:27 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int c, t_str *v)
 						if (ft_strncmp(tmp, VG_VER, 20))
 						{
 							printf("\e[Updating to %s\n", tmp);
-							vg_run("git clone https://github.com/vogship/42vogship.git vogship; clear; make all -C vogship; rm -rf vogship");
+							vg_run("git clone https://github.com/vogship/42vogship.git vogship; clear; make all -s -C vogship; rm -rf vogship");
 						}
 						else
 						{
@@ -77,7 +77,7 @@ int	main(int c, t_str *v)
 						} 
 					}
 					else
-						printf("Please check your internet");
+						printf("Please check your internet connection.\n");
 					vg_run("rm -rf vogshipver");
 				}
 			}

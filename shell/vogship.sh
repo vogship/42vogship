@@ -20,18 +20,14 @@
 # Command forwarding
 
 alias man='man -M ~/.vogship/man:$(manpath)'
+git config --global alias.reverse 'reset --hard HEAD'
 
-vogship() {
-	~/.vogship/bin/vogship $@ 
-}
-
-clsyc() {
-	~/.vogship/bin/clsyc
-}
-
-compile() {
-	gcc -Wall -Werror -Wextra $@
-}
+alias vogship="~/.vogship/bin/vogship"
+alias compile="gcc -Wall -Werror -Wextra"
+alias clsyc="~/.vogship/bin/clsyc"
+alias cls="clear"
+alias genhead="~/.vogship/bin/genhead"
+alias rsthead="~/.vogship/bin/rsthead"
 
 car() {
 	gcc -Wall -Werror -Wextra $@ -o a
@@ -50,16 +46,4 @@ norm() {
 medir() {
 	mkdir $1
 	cd $1
-}
-
-cls() {
-	clear
-}
-
-genhead() {
-	~/.vogship/bin/genhead $@
-}
-
-rsthead() {
-	~/.vogship/bin/rsthead $@
 }

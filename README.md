@@ -1,11 +1,11 @@
 # The Vogship v2 Turbo
-The Vogship allows you to navigate the vogsphere a lot more freely so you can focus on making and helping easily. \[NOW IN C!\]
+The Vogship Tool allows you to navigate the vogsphere a lot more freely so you can focus on making and helping more.
 
 ```
      / /  |/| |
    / /__   / /
- /____  | | |/|  █  Vogship
-      | |                      Made By Developers for Developers
+ /____  | | |/|  █  Vogship v2 Turbo p(0.0.5)
+      | |           Made By Developers for Developers
 ```
 
 ## Installation
@@ -13,22 +13,22 @@ The Vogship allows you to navigate the vogsphere a lot more freely so you can fo
 - [Norminette](https://github.com/42School/norminette "42 Norminette")
 
 ### Installing
-Using vspm:
+#### Using vspm:
 ```sh
 vspm -i vogship
 ```
+#### Without vspm:
 One Liner:  
 ```sh
-git clone https://github.com/vogship/42vogship.git vogship; make all -C vogship; rm -rf vogship; source ~/.bashrc
+git clone https://github.com/vogship/42vogship.git vogship; make all -s -C vogship; rm -rf vogship; source ~/.bashrc
 ```  
 line by line:
 ```sh
 git clone https://github.com/vogship/42vogship.git vogship
-make all -C vogship
+make all -s -C vogship
 rm -rf vogship
 source ~/.bashrc
 ```
-
 Install location: `~/.vogship/`
 
 ## Commands
@@ -43,10 +43,12 @@ The Vogship adds the following commands:
 - `norm <file/files>` Checks the files through the 'Norminette' both file types run with specific flags.
 - `vogship <flags>` The Vogship command helping you soar through 42 Terminal.
 
+Additions to regular commands:
+- `git reverse` reverses a workspace to the last commit. same as `git reset --hard HEAD`
+
 For more details on any command you can always check the manual of that command  
 `man <command>`
 
 &nbsp;
 
-> Vogship - 2022
-> `Create what you love.`
+![Create what you love.](https://vogship.web.app/cwyl-text.png "Create what you love.")

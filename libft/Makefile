@@ -6,86 +6,74 @@
 #    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 17:55:39 by amenadue          #+#    #+#              #
-#    Updated: 2022/03/24 08:08:29 by amenadue         ###   ########.fr        #
+#    Updated: 2022/07/10 21:42:32 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Config
 
-Library		= libft
+NAME	=	libft
 
-files 	   = ft_strlen \
-			 ft_memmove \
-			 ft_memcpy \
-			 ft_strlcpy \
-			 ft_strlcat \
-			 ft_isalpha \
-			 ft_isdigit \
-			 ft_isalnum \
-			 ft_isascii \
-			 ft_isprint \
-			 ft_memset \
-			 ft_bzero \
-			 ft_toupper \
-			 ft_tolower \
-			 ft_strchr \
-			 ft_strrchr \
-			 ft_strncmp \
-			 ft_memchr \
-			 ft_memcmp \
-			 ft_strnstr \
-			 ft_atoi \
-			 ft_calloc \
-			 ft_strdup \
-			 ft_substr \
-			 ft_strjoin \
-			 ft_strtrim \
-			 ft_split \
-			 ft_itoa \
-			 ft_strmapi \
-			 ft_striteri	\
-			 ft_putchar_fd \
-			 ft_putstr_fd \
-			 ft_putendl_fd \
-			 ft_putnbr_fd \
-
-Compiler	= gcc
-
-CmpFlags	= -Wall -Wextra -Werror
+SRC 	=	ft_strlen.c \
+			ft_memmove.c \
+			ft_memcpy.c \
+			ft_strlcpy.c \
+			ft_strlcat.c \
+			ft_isalpha.c \
+			ft_isdigit.c \
+			ft_isalnum.c \
+			ft_isascii.c \
+			ft_isprint.c \
+			ft_memset.c \
+			ft_bzero.c \
+			ft_toupper.c \
+			ft_tolower.c \
+			ft_strchr.c \
+			ft_strrchr.c \
+			ft_strncmp.c \
+			ft_memchr.c \
+			ft_memcmp.c \
+			ft_strnstr.c \
+			ft_atoi.c \
+			ft_calloc.c \
+			ft_strdup.c \
+			ft_substr.c \
+			ft_strjoin.c \
+			ft_strtrim.c \
+			ft_split.c \
+			ft_itoa.c \
+			ft_strmapi.c \
+			ft_striteri.c	\
+			ft_putchar_fd.c \
+			ft_putstr_fd.c \
+			ft_putendl_fd.c \
+			ft_putnbr_fd.c \
+			ft_printf.c \
+			ft_internal_print_a.c \
+			ft_internal_print_b.c \
+			ft_gnl.c
 
 # EnvVars (Do not touch unless you understand and know what is happening, which you probably do)
 
-OUTN	= $(Library).a
+CC		=	gcc
 
-CFILES	= $(files:%=%.c)
+CCFLAGS	=	-Wall -Wextra -Werror
 
-OFILES	= $(files:%=%.o)
-
-NAME	= $(OUTN)
+OBJS	= $(SRC:%.c=%.o)
 
 $(NAME):
-	$(Compiler) $(CmpFlags) -c $(CFILES)
-	ar -rc $(OUTN) $(OFILES)
+	-@$(CC) $(CCFLAGS) -c $(SRC) -I./
+	-@ar -rc $(NAME).a $(OBJS)
+	-@printf "made libft.a\n"
 
 all: $(NAME)
 
-verbose:fclean
-	-@$(Compiler) $(CmpFlags) -g3 -c $(CFILES) -I./
-	-@ar -rcs $(OUTN) $(OFILES)
-
 clean:
-	rm -f $(NAME)
-	rm -f $(OFILES)
+	-@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	-@rm -f $(NAME).a
 
 re: fclean all
-
-clo:
-	rm -f $(OFILES)
-	
-test:
-	bash ../Libftest/grademe.sh
 
 .PHONY: all, clean, fclean, re

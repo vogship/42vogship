@@ -32,10 +32,10 @@ int	main(int c, t_str *v)
 					if (ft_strncmp(tmp, VG_VER, 20))
 					{
 						if (ft_strncmp(tmp, VG_VER, 20))
-							printf("\e[94mNew version Available!\e[0m\n\e[91m%s\e[0m -> \e[92m%s\e[0m\n", VG_VER, tmp);
+							ft_printf("\e[94mNew version Available!\e[0m\n\e[91m%s\e[0m -> \e[92m%s\e[0m\n", VG_VER, tmp);
 						else if (!contains(v[1], 's'))
 						{
-							printf("Currently Up to date!\n");
+							ft_printf("Currently Up to date!\n");
 							vg_version();
 						}
 					}
@@ -46,16 +46,16 @@ int	main(int c, t_str *v)
 			}
 			else if (contains(v[1], 'h'))
 			{
-				printf("\e[92mCommands Available:\e[0m\n");
+				ft_printf("\e[92mCommands Available:\e[0m\n");
 				vg_cmdlist();
 			}
 			else if (contains(v[1], 'u'))
 			{
 				if (contains(v[1], 'f'))
 				{
-					printf("\e[91mReinstalling update\e[0m\n");
+					ft_printf("\e[91mReinstalling update\e[0m\n");
 					tmp = vg_run("curl -s https://raw.githubusercontent.com/vogship/42vogship/master/versionstring -o vogshipver; cat vogshipver; rm vogshipver");
-					printf("Updating to %s\n", tmp);
+					ft_printf("Updating to %s\n", tmp);
 					vg_run("git clone https://github.com/vogship/42vogship.git vogship; clear; make all -s -C vogship; rm -rf vogship");
 				}
 				else
@@ -64,7 +64,7 @@ int	main(int c, t_str *v)
 
 					if (ft_strncmp(tmp, "cat: vogshipver: No such file or directory", 48))
 					{
-						if (ft_strncmp(tmp, VG_VER, 20))
+						if (ft_strncmp(tmp, VG_VER, ft_strlen(VG_VER)+1))
 						{
 							printf("\e[Updating to %s\n", tmp);
 							vg_run("git clone https://github.com/vogship/42vogship.git vogship; clear; make all -s -C vogship; rm -rf vogship");

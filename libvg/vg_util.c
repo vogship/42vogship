@@ -74,7 +74,7 @@ int	contains(t_str s, char l)
 
 void	nl(void)
 {
-	printf("\n");
+	ft_printf("\n");
 }
 
 t_str	vg_run(const t_str cmd)
@@ -86,7 +86,7 @@ t_str	vg_run(const t_str cmd)
 	fp = popen(cmd, "r");
 	if (fp == NULL)
 	{
-		printf("Failed to run command: %s\n", cmd);
+		ft_printf("Failed to run command: %s\n", cmd);
 		return ("-1");
 	}
 	while (fgets(line, 512, fp) != NULL)
@@ -103,10 +103,10 @@ void	vg_runp(const t_str cmd)
 	fp = popen(cmd, "r");
 	if (fp == NULL)
 	{
-		printf("Failed to run command: %s\n", cmd);
+		ft_printf("Failed to run command: %s\n", cmd);
 		return ;
 	}
 	while (fgets(line, 512, fp) != NULL)
-		printf("%s", line);
+		ft_printf("%s", line);
 	free(line);
 }

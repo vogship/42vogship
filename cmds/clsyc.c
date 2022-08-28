@@ -19,9 +19,9 @@ int	main(void)
 	t_str	tmp;
 	
 	tmp = vg_run("du -Hk ~ 2>&1");
-	printf("\e[92mBefore Cleanup: %s\e[0m", tmp);
+	ft_printf("\e[92mBefore Cleanup: %s\e[0m", tmp);
 	vg_runp("rm -rf ~/Library/Caches/* 2>&1");
 	tmp = vg_run("du -Hk ~ 2>&1");
-	printf("\e[92mAfter Cleanup: %s\e[0m", tmp);
+	ft_printf("\e[92mAfter Cleanup: %s\e[0m", tmp);
 	return (0);
 }

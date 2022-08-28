@@ -64,14 +64,12 @@ all:
 	@mkdir ~/.vogship || $(MAKE) -s error
 	@mkdir ~/.vogship/bin || $(MAKE) -s error
 	@$(MAKE) all -s -C libft || $(MAKE) -s error
-	@cp libft/libft.a libft.a || $(MAKE) -s error
 	@$(MAKE) all -s -C libvg || $(MAKE) -s error
-	@cp libvg/libvg.a libvg.a || $(MAKE) -s error
 	@$(MAKE) -s rocket1
 	@printf "Compiling...\n"
 	@$(MAKE) -s rocket2
 	@printf "   \e[31m()\e[0m\n\n"
-	@$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a libft.a -o ~/.vogship/bin/$(COMMAND) || $(MAKE) -s error;)
+	@$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c -Llibvg -lvg -Llibft -lft -o ~/.vogship/bin/$(COMMAND) || $(MAKE) -s error;)
 	@$(MAKE) -s rocket1
 	@printf "Registering Commands...\n"
 	@$(MAKE) -s rocket2
@@ -91,10 +89,8 @@ verbose:
 	mkdir ~/.vogship  || $(MAKE) -s error
 	mkdir ~/.vogship/bin  || $(MAKE) -s error
 	$(MAKE) verbose -C libft || $(MAKE) -s error
-	cp libft/libft.a libft.a || $(MAKE) -s error
 	$(MAKE) verbose -C libvg || $(MAKE) -s error
-	cp libvg/libvg.a libvg.a || $(MAKE) -s error
-	$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c libvg.a libft.a -g3 -o ~/.vogship/bin/$(COMMAND) || $(MAKE) -s error;) 
+	$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c -Llibvg -lvg -Llibft -lft -g3 -o ~/.vogship/bin/$(COMMAND) || $(MAKE) -s error;) 
 	cp -r man ~/.vogship/ || $(MAKE) error
 	cp shell/vogship.sh ~/.vogship/vogship.sh || $(MAKE) error
 	$(if $(shell grep "source ~\/\.vogship\/vogship\.sh" ~/.bashrc),,printf "source ~/.vogship/vogship.sh" >> ~/.bashrc)
@@ -124,7 +120,6 @@ fclean: clean
 	@$(MAKE) fclean -s -C libvg || $(MAKE) -s error
 
 error:
-	@clear
 	@printf "This was not meant to happen\n"
 	@printf "You can report this to https://github.com/vogship/42vogship/issues\n"
 	@exit 1

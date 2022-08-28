@@ -16,7 +16,7 @@
 # include "../libft/libft.h"
 # include <stdio.h>
 
-# define VG_VER "v2.0 Turbo p(0.0.5)"
+# define VG_VER "v2.0 Turbo p(0.0.6)"
 # define VG_AUTHOR "Aaron Menadue"
 
 typedef char*	t_str;

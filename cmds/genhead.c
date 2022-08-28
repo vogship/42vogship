@@ -86,7 +86,7 @@ int	main(int c, t_str *v)
 	i = 1;
 	if (c == 1)
 	{
-		printf("Usage: ");
+		ft_printf("Usage: ");
 		vg_cmdhelp(g_cmdindex);
 		nl();
 	}
@@ -99,7 +99,7 @@ int	main(int c, t_str *v)
 			ft_strlcat(tmp, v[i], 128);
 			line = vg_run(tmp);
 			if (endswith(line, "No such file or directory"))
-				printf("Couldn't find %s\n", v[i]);
+				ft_printf("Couldn't find %s\n", v[i]);
 			else if (is_directory(v[i]))
 			{
 				line = (char *) ft_calloc(1024, sizeof(char));
@@ -173,7 +173,7 @@ int	main(int c, t_str *v)
 					fp = fopen(v[i], "r");
 					if (!fp)
 					{
-						fprintf(stderr, "Failed to open %s\n", v[i]);
+						fft_printf(stderr, "Failed to open %s\n", v[i]);
 						return (1);
 					}
 
@@ -207,12 +207,12 @@ int	main(int c, t_str *v)
 					if (flag < 5)
 					{
 						vg_stdheader(v[i]);
-						printf("%s: Generated!\n", v[i]);
+						ft_printf("%s: Generated!\n", v[i]);
 						if (line != NULL)
 							free(line);
 					}
 					else
-						printf("%s: Already has :Stdheader!\n", v[i]);
+						ft_printf("%s: Already has :Stdheader!\n", v[i]);
 				}
 			}
 			i++;

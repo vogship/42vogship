@@ -32,7 +32,7 @@ int	main(int c, t_str *v)
 	i = 1;
 	if (c == 1)
 	{
-		printf("Usage: ");
+		ft_printf("Usage: ");
 		vg_cmdhelp(g_cmdindex);
 		nl();
 	}
@@ -46,7 +46,7 @@ int	main(int c, t_str *v)
 			line = vg_run(tmp);
 			if (endswith(line, "No such file or directory"))
 			{
-				printf("Couldn't find %s\n", v[i]);
+				ft_printf("Couldn't find %s\n", v[i]);
 			}
 			else if (is_directory(v[i]))
 			{

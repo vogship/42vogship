@@ -89,7 +89,7 @@ int	main(int c, t_str *v)
 	i = 1;
 	if (c == 1)
 	{
-		printf("Usage: ");
+		ft_printf("Usage: ");
 		vg_cmdhelp(g_cmdindex);
 		nl();
 	}
@@ -103,7 +103,7 @@ int	main(int c, t_str *v)
 			line = vg_run(tmp);
 			if (endswith(line, "No such file or directory"))
 			{
-				printf("Couldn't find %s\n", v[i]);
+				ft_printf("Couldn't find %s\n", v[i]);
 			}
 			else if (is_directory(v[i]))
 			{
@@ -183,12 +183,12 @@ int	main(int c, t_str *v)
 					nfp = fopen("vgrmheader", "w");
 					if (!fp)
 					{
-						fprintf(stderr, "Failed to open %s\n", v[i]);
+						fft_printf(stderr, "Failed to open %s\n", v[i]);
 						return (1);
 					}
 					if (!nfp)
 					{
-						fprintf(stderr, "Failed to open %s\n", v[i]);
+						fft_printf(stderr, "Failed to open %s\n", v[i]);
 						return (1);
 					}
 					
@@ -198,7 +198,7 @@ int	main(int c, t_str *v)
 						line[str_loc_char(line, '\n')] = 0;
 						if (start_writing)
 						{
-							fprintf(nfp, "%s\n", line);
+							fft_printf(nfp, "%s\n", line);
 						}
 						else 
 						{
@@ -222,12 +222,12 @@ int	main(int c, t_str *v)
 						ft_strlcat(line, "mv vgrmheader ", 128);
 						ft_strlcat(line, v[i], 128);
 						system(line);
-						printf("%s: Removed header!\n", v[i]);
+						ft_printf("%s: Removed header!\n", v[i]);
 						free(line);
 					}
 					else 
 					{
-						printf("%s: Has no header!\n", v[i]);
+						ft_printf("%s: Has no header!\n", v[i]);
 					}
 					system("rm -rf vgrmheader");
 				}

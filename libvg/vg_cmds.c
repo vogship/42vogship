@@ -62,12 +62,12 @@ const t_vgcmd	g_cmdlist[VG_COMMAND_COUNT] = {
 
 void	vg_cmdinfo(t_vgcmd vgcmd)
 {
-	printf("\e[96m\e[48;5;235m %s", vgcmd.cmd);
+	ft_printf("\e[96m\e[48;5;235m %s", vgcmd.cmd);
 	if (vgcmd.cmdflgs != NULL)
 	{
-		printf(" \e[94m%s", vgcmd.cmdflgs);
+		ft_printf(" \e[94m%s", vgcmd.cmdflgs);
 	}
-	printf(" \e[0m");
+	ft_printf(" \e[0m");
 }
 
 void	vg_cmdlist(void)
@@ -78,10 +78,10 @@ void	vg_cmdlist(void)
 	i = 0;
 	while (i < VG_COMMAND_COUNT)
 	{
-		printf("   ");
+		ft_printf("   ");
 		currcmd = g_cmdlist[i];
 		vg_cmdinfo(currcmd);
-		printf(" %s\n", currcmd.desc);
+		ft_printf(" %s\n", currcmd.desc);
 		i++;
 	}
 }

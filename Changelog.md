@@ -5,6 +5,10 @@
  /____  | | |/|  █  Vogship
       | |                      Made By Developers for Developers
 ```
+## Changelog v2.0 Turbo p(0.0.6)
+- Updated libft with more recent version.
+- Replaced all `printf()`s with `ft_printf()`s.
+
 ## Changelog v2.0 Turbo p(0.0.5)
 - Added `git reverse` to make reversing back to the last commit easier.
 - Rewrote most of the commands in the shellscript as `alias`.

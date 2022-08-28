@@ -3,18 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <iscoffee.learning@gmail.c>       +#+  +:+       +#+        */
+/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 17:51:19 by amenadue          #+#    #+#             */
-/*   Updated: 2021/09/17 15:13:01 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/07/11 12:08:35 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 128
+# endif
 
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
@@ -51,5 +56,20 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+
+char	*get_next_line(int fd);
+
+typedef struct s_print
+{
+	va_list	args;
+}	t_print;
+
+int		ft_internal_printcharacter(t_print *arg_count);
+int		ft_internal_printstring(t_print *arg_count);
+int		ft_internal_printpointer(t_print *arg_count);
+int		ft_internal_printhex(t_print *arg_count, char character);
+int		ft_internal_printint(t_print *arg_count);
+int		ft_internal_printunsignedint(t_print *arg_count);
+int		ft_printf(const char *string, ...);
 
 #endif

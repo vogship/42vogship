@@ -188,7 +188,7 @@ int	main(int c, t_str *v)
 					}
 					if (!nfp)
 					{
-						fft_printf(stderr, "Failed to open %s\n", v[i]);
+						fprintf(stderr, "Failed to open %s\n", v[i]);
 						return (1);
 					}
 					

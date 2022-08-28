@@ -173,7 +173,7 @@ int	main(int c, t_str *v)
 					fp = fopen(v[i], "r");
 					if (!fp)
 					{
-						fft_printf(stderr, "Failed to open %s\n", v[i]);
+						fprintf(stderr, "Failed to open %s\n", v[i]);
 						return (1);
 					}
 

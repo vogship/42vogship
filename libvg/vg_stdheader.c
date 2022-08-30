@@ -183,9 +183,9 @@ int		vg_stdheader(t_str filepath)
 		sprintf(tmp, "By: %s <%s>", stdhd_user(), stdhd_mail());
 		sprintf(header, "%s%s", header, text_line(tmp, ascii_art[3]));
 		sprintf(header, "%s%s", header, text_line("", ascii_art[4]));
-		sprintf(tmp, "Created: %s By %s", stdhd_tformat(), stdhd_user());
+		sprintf(tmp, "Created: %s by %s", stdhd_tformat(), stdhd_user());
 		sprintf(header, "%s%s", header, text_line(tmp, ascii_art[5]));
-		sprintf(tmp, "Updated: %s By %s", stdhd_tformat(), stdhd_user());
+		sprintf(tmp, "Updated: %s by %s", stdhd_tformat(), stdhd_user());
 		sprintf(header, "%s%s", header, text_line(tmp, ascii_art[6]));
 		sprintf(header, "%s%s", header, text_line("", ""));
 		sprintf(header, "%s%s\n", header, filled);

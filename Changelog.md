@@ -5,6 +5,11 @@
  /____  | | |/|  █  Vogship
       | |                      Made By Developers for Developers
 ```
+## Changelog v2.0 Turbo p(0.0.7)
+- Updated `clsyc` to show available.
+- Fixed problem with Norminette failing after setting stdheader with `genhead`.
+- Fixed compiliation issues for `rsthead` from implentation of `ft_printf()` from last update.
+
 ## Changelog v2.0 Turbo p(0.0.6)
 - Updated libft with more recent version.
 - Replaced all `printf()`s with `ft_printf()`s.

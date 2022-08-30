@@ -7,6 +7,10 @@
   - tturner
   - TomT#1016
   - [tturner@student.42adel.org.au](mailto:tturner@student.42adel.org.au)
+- James Otta (Contricution and Debugging)
+  - jotta
+  - Zoc#7527
+  - [jotta@student.42adel.org.au](mailto:jotta@student.42adel.org.au)
 - Byron Hawksmith (QA)
   - bhawksmi
   - Titan#4990

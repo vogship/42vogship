@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/04/07 19:07:40 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:07:16 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,7 +183,7 @@ int	main(int c, t_str *v)
 					nfp = fopen("vgrmheader", "w");
 					if (!fp)
 					{
-						fft_printf(stderr, "Failed to open %s\n", v[i]);
+						fprintf(stderr, "Failed to open %s\n", v[i]);
 						return (1);
 					}
 					if (!nfp)
@@ -198,7 +198,7 @@ int	main(int c, t_str *v)
 						line[str_loc_char(line, '\n')] = 0;
 						if (start_writing)
 						{
-							fft_printf(nfp, "%s\n", line);
+							fprintf(nfp, "%s\n", line);
 						}
 						else 
 						{

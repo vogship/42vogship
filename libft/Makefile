@@ -6,7 +6,7 @@
 #    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/13 17:55:39 by amenadue          #+#    #+#              #
-#    Updated: 2022/07/10 21:42:32 by amenadue         ###   ########.fr        #
+#    Updated: 2022/08/30 14:06:00 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,5 +75,7 @@ fclean: clean
 	-@rm -f $(NAME).a
 
 re: fclean all
+
+verbose: re
 
 .PHONY: all, clean, fclean, re

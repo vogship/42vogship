@@ -6,7 +6,7 @@
 - [ombhd](https://github.com/ombhd) (External Resource)
 
 # Quality Assurers
+- Pasquale Rossi
 - Byron Hawksmith
 - Jaymie Gobbett
-- Pasquale Rossi
 - Coby J. Morris

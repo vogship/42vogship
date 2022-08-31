@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 14:58:39 by coffee            #+#    #+#             */
-/*   Updated: 2022/08/30 18:04:06 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/08/31 21:55:47 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,25 +136,31 @@ t_str	stdhd_mail()
 
 int		vg_stdheader(t_str filepath)
 {
-	t_str header;
-	t_str tmp;
-	t_str filled;
+	t_str		header;
+	t_str		tmp;
+	t_str		filled;
 	int c;
 
-	FILE *fp;
-	FILE *fpt;
+	int			fd;
+	int			tfd;
 	struct stat fst;
 
-	stat(filepath, &fst);
+	fd = open(filepath, O_RDWR);
+	fstat(fd, &fst);
+	if (!fd)
+	{
+		write(2, "An error occured when opening files.\n", 39);
+		return (0);
+	}
 
 	if (access( filepath, F_OK ) != 0)
 	{
-    	fprintf(stderr, "File doesn't exist!\n");
+    	write(2, "File doesn't exist!\n", 20);
 		return (0);
 	}
 	else if (S_ISDIR(fst.st_mode))
 	{
-		fprintf(stderr, "Cannot :Stdheader on a directory\n");
+		write(2, "Cannot :Stdheader on a directory\n", 33);
 		return (0);
 	}
 	else
@@ -163,48 +169,44 @@ int		vg_stdheader(t_str filepath)
 		if (header == NULL)
 			return (0);
 
-		fp = fopen(filepath, "r");
-		fpt = fopen("vogshipstdheader", "w");
-		if (!fp | !fpt)
+		tfd = open("vogshipstdheader", O_CREAT | O_RDWR, 0777);
+		if (!tfd)
 		{
-			fprintf(stderr, "An error occured when openening files.\n");
-			exit(1);
+			write(2, "An error occured when opening files.\n", 39);
+			return (0);
 		}
+
+		while (read(fd, &c, sizeof(char)))
+			write(tfd, &c, sizeof(char));
+		ftruncate(tfd, lseek(fd, 0, SEEK_CUR));
 
 		filled = fill_line();
 		ft_memcpy(header, filled, ((STDHEADER_LENGTH + 1) * 12));
-		ft_memcpy(header + ft_strlen(header), text_line("", ""), ((STDHEADER_LENGTH + 1) * 12));
-		ft_memcpy(header + ft_strlen(header), text_line("", ascii_art[0]), ((STDHEADER_LENGTH + 1) * 12));
-		ft_memcpy(header + ft_strlen(header), text_line(filepath, ascii_art[1]), ((STDHEADER_LENGTH + 1) * 12));
-		ft_memcpy(header + ft_strlen(header), text_line("", ascii_art[2]), ((STDHEADER_LENGTH + 1) * 12));
+		ft_strlcat(header, text_line("", ""), ((STDHEADER_LENGTH + 1) * 12));
+		ft_strlcat(header, text_line("", ascii_art[0]), ((STDHEADER_LENGTH + 1) * 12));
+		ft_strlcat(header, text_line(filepath, ascii_art[1]), ((STDHEADER_LENGTH + 1) * 12));
+		ft_strlcat(header, text_line("", ascii_art[2]), ((STDHEADER_LENGTH + 1) * 12));
 		tmp = (char *) ft_calloc(STDHEADER_LENGTH+1, sizeof(char));
 		if (tmp == NULL)
 			return (0);
 		sprintf(tmp, "By: %s <%s>", stdhd_user(), stdhd_mail());
-		ft_memcpy(header + ft_strlen(header), text_line(tmp, ascii_art[3]), ((STDHEADER_LENGTH + 1) * 12));
-		ft_memcpy(header + ft_strlen(header), text_line("", ascii_art[4]), ((STDHEADER_LENGTH + 1) * 12));
+		ft_strlcat(header, text_line(tmp, ascii_art[3]), ((STDHEADER_LENGTH + 1) * 12));
+		ft_strlcat(header, text_line("", ascii_art[4]), ((STDHEADER_LENGTH + 1) * 12));
 		sprintf(tmp, "Created: %s by %s", stdhd_tformat(), stdhd_user());
-		ft_memcpy(header + ft_strlen(header), text_line(tmp, ascii_art[5]), ((STDHEADER_LENGTH + 1) * 12));
+		ft_strlcat(header, text_line(tmp, ascii_art[5]), ((STDHEADER_LENGTH + 1) * 12));
 		sprintf(tmp, "Updated: %s by %s", stdhd_tformat(), stdhd_user());
-		ft_memcpy(header + ft_strlen(header), text_line(tmp, ascii_art[6]), ((STDHEADER_LENGTH + 1) * 12));
-		ft_memcpy(header + ft_strlen(header), text_line("", ""), ((STDHEADER_LENGTH + 1) * 12));
-		ft_memcpy(header + ft_strlen(header), filled, ((STDHEADER_LENGTH + 1) * 12));
-		fseek(fpt, 0, SEEK_SET);
-		fseek(fp, 0, SEEK_SET);
-		fputs(header, fpt);
-		while (1)
-		{
-			c = fgetc(fp);
-			if (c == EOF)
-				break ;
-			fputc(c, fpt);
-		}
-		fclose(fp);
-		fclose(fpt);
-		tmp = (t_str) ft_calloc(43 + ft_strlen(filepath), sizeof(char));
-		ft_strlcat(tmp, "mv vogshipstdheader ", 21);
-		ft_strlcat(tmp, filepath, 25 + ft_strlen(filepath));
-		system(tmp);
+		ft_strlcat(header, text_line(tmp, ascii_art[6]), ((STDHEADER_LENGTH + 1) * 12));
+		ft_strlcat(header, text_line("", ""), ((STDHEADER_LENGTH + 1) * 12));
+		ft_strlcat(header, filled, ((STDHEADER_LENGTH + 1) * 12));
+		lseek(fd, 0, SEEK_SET);
+		write(fd, header, ft_strlen(header));
+		write(fd, "\n", 1);
+		lseek(tfd, 0, SEEK_SET);
+		while (read(tfd, &c, sizeof(char)))
+			write(fd, &c, sizeof(char));
+		close(fd);
+		close(tfd);
+		remove("vogshipstdheader");
 		return (1);
 	}
 }

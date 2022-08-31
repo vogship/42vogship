@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/08/31 21:06:12 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/08/31 21:41:41 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../libft/libft.h"
 # include <stdio.h>
+# include <fcntl.h>
 
 # define VG_VER "v2.1 Turbo p(0.0.0)"
 # define VG_AUTHOR "Aaron Menadue"

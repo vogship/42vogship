@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/08/30 15:33:54 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/08/31 21:43:24 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,8 +205,10 @@ int	main(int c, t_str *v)
 
 					if (flag < 5)
 					{
-						vg_stdheader(v[i]);
-						ft_printf("%s: Generated!\n", v[i]);
+						if (vg_stdheader(v[i]))
+							ft_printf("%s: Generated!\n", v[i]);
+						else
+							ft_printf("%s: Failed to generate\n", v[i]);
 						if (line != NULL)
 							free(line);
 					}

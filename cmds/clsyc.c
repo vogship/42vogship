@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:39:21 by amenadue          #+#    #+#             */
-/*   Updated: 2022/08/31 21:18:37 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/08/31 21:31:14 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ int	main(void)
 	}
 	else
 	{
-		ft_printf("Would to like to run a deep clean?\n");
-		ft_printf("(This has a very slim chance of unexpected behaviour)\n");
-		ft_printf("y: yes | n: no | a: always, no need to ask | d: no and don't ever me ask again\n");
-		ft_printf("[Y|n|a|d] "); scanf("%c", &c);
+		ft_printf("\e[1m\e[92mWould to like to run a deep clean?\e[0m\n");
+		ft_printf("\e[32m(This has a very slim chance of unexpected behaviour)\e[0m\n");
+		ft_printf("\e[92my: yes\e[0m | \e[91mn: no\e[0m | \e[92ma: always, no need to ask\e[0m | \e[91md: no and don't ever me ask again\e[0m\n");
+		ft_printf("[\e[1m\e[92mY\e[0m|\e[91mn\e[0m|\e[92ma\e[0m|\e[91md\e[0m] "); scanf("%c", &c);
 	}
 
 	vg_runp("rm -rf '~/Library/Caches/*'");
@@ -73,7 +73,7 @@ int	main(void)
 	
 	#else
 
-	ft_printf("\e[94mCommand is only for Campus Machines.\e[0m\n");
+	ft_printf("\e[94mThis command is only for Campus Machines.\e[0m\n");
 
 	#endif
 }

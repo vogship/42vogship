@@ -6,12 +6,11 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/08/31 20:58:29 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/08/31 21:41:34 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vogship.h"
-#include <fcntl.h>
 
 /** Checks if the key provided is a valid key.
  * 

@@ -6,7 +6,7 @@
 #    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/08 23:46:33 by amenadue          #+#    #+#              #
-#    Updated: 2022/03/24 15:01:27 by amenadue         ###   ########.fr        #
+#    Updated: 2022/08/31 20:25:59 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ FILES =	vg_info.c \
 		vg_util.c \
 		vg_util1.c \
 		vg_cmds.c \
-		vg_stdheader.c
+		vg_stdheader.c \
+		vg_prefs.c
 
 CCFLAGS =	-Wall -Werror -Wextra
 
@@ -56,11 +57,11 @@ endif
 OBJS = $(FILES:.c=.o)
 
 verbose:
-	-@gcc -g3 -c $(FILES)
+	-@gcc $(CCFLAGS) -g3 -c $(FILES)
 	-@ar -rcs $(NAME).a $(OBJS)
 
 all: fclean
-	-@gcc -c $(FILES)
+	-@gcc $(CCFLAGS) -c $(FILES)
 	-@ar -rcs $(NAME).a $(OBJS)
 
 clean:

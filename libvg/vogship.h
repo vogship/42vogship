@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/08/30 14:17:18 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/08/31 21:06:12 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 # include "../libft/libft.h"
 # include <stdio.h>
 
-# define VG_VER "v2.0 Turbo p(0.0.7)"
+# define VG_VER "v2.1 Turbo p(0.0.0)"
 # define VG_AUTHOR "Aaron Menadue"
+
+# define VG_PREFERENCE_FILE "~/.vg_prefs.ini"
+# define VG_TMP_PREF_FILE "~/.tmp_vg_prefs.ini"
 
 typedef char*	t_str;
 
@@ -45,5 +48,8 @@ t_str	vg_run(const t_str cmd);
 void	vg_runp(const t_str cmd);
 int		regex(const t_str s, const t_str w);
 int		vg_stdheader(t_str filepath);
+char	*vg_get_pref(char *preference_name, char *default_value);
+int		vg_set_pref(char *preference_name, char *value);
+int		vg_del_pref(char *preference_name);
 
 #endif

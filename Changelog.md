@@ -5,6 +5,11 @@
  /____  | | |/|  █  Vogship
       | |                      Made By Developers for Developers
 ```
+## Changelog v2.1 Turbo p(0.0.0)
+- Added Preference System.
+- Improved `clsyc` to be MacOS exclusive and a prompt to the user for deep-cleaning.
+- Fixed a few spelling mistakes in documentation.
+
 ## Changelog v2.0 Turbo p(0.0.7)
 - Updated `clsyc` to show available.
 - Fixed problem with Norminette failing after setting stdheader with `genhead`.

@@ -30,14 +30,14 @@ alias genhead="~/.vogship/bin/genhead"
 alias rsthead="~/.vogship/bin/rsthead"
 
 car() {
-	gcc -Wall -Werror -Wextra $@ -o a
-	./a
-	rm a
+	gcc -Wall -Werror -Wextra $@ -o /tmp/compiled_bin
+	/tmp/compiled_bin
+	rm -f /tmp/compiled_bin
 }
 
 norm() {
 	if [ -z "$1" ]; then
-		norm * 
+		norm .
 	else
 		~/.vogship/bin/norm $@
 	fi

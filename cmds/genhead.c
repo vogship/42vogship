@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/04/07 19:07:26 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/08/30 15:33:54 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ int	main(int c, t_str *v)
 	t_str	line;
 	int		flag;
     size_t	len = 0;
-    ssize_t	read;
 
 	int proceed;
 	t_str start;
@@ -177,7 +176,7 @@ int	main(int c, t_str *v)
 						return (1);
 					}
 
-					while (getline(&line, &len, fp) != -1)
+					while (getline(&line, &len, fp) != EOF)
 					{
 						line[str_loc_char(line, '\n')] = 0;
 						if (startswith(line, start))

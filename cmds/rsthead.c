@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 23:47:59 by amenadue          #+#    #+#             */
-/*   Updated: 2022/08/30 14:07:16 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/08/30 14:45:33 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,10 @@ int hasfileext(t_str file, t_str set)
 
 int	main(int c, t_str *v)
 {
-	t_str	fordir;
 	t_str	tmp;
 	t_str	line;
 	int		flag;
 	int		start_writing;
-    size_t	len = 0;
-    ssize_t	read;
 
 	int		proceed;
 	t_str	start;

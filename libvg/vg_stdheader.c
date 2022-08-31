@@ -6,7 +6,7 @@
 /*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/24 14:58:39 by coffee            #+#    #+#             */
-/*   Updated: 2022/07/21 00:07:29 by amenadue         ###   ########.fr       */
+/*   Updated: 2022/08/30 18:04:06 by amenadue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ t_str fill_line()
 	t_str	tmp;
 	int		fillwidth;
 
-	line = (t_str) ft_calloc((STDHEADER_LENGTH+1), sizeof(char));
+	line = (t_str) ft_calloc((STDHEADER_LENGTH+2), sizeof(char));
 	ft_strlcat(line, start, STDHEADER_MARGIN);
 	fillwidth = STDHEADER_LENGTH - ft_strlen(end) - ft_strlen(start) - 2;
 	ft_strlcat(line, " ", STDHEADER_LENGTH+1);
@@ -159,7 +159,7 @@ int		vg_stdheader(t_str filepath)
 	}
 	else
 	{
-		header = (t_str) ft_calloc((STDHEADER_LENGTH * 12), sizeof(char));
+		header = (t_str) ft_calloc(((STDHEADER_LENGTH + 1) * 12) + 1, sizeof(char));
 		if (header == NULL)
 			return (0);
 
@@ -172,23 +172,23 @@ int		vg_stdheader(t_str filepath)
 		}
 
 		filled = fill_line();
-		sprintf(header, "%s", filled);
-		sprintf(header, "%s%s", header, text_line("", ""));
-		sprintf(header, "%s%s", header, text_line("", ascii_art[0]));
-		sprintf(header, "%s%s", header, text_line(filepath, ascii_art[1]));
-		sprintf(header, "%s%s", header, text_line("", ascii_art[2]));
+		ft_memcpy(header, filled, ((STDHEADER_LENGTH + 1) * 12));
+		ft_memcpy(header + ft_strlen(header), text_line("", ""), ((STDHEADER_LENGTH + 1) * 12));
+		ft_memcpy(header + ft_strlen(header), text_line("", ascii_art[0]), ((STDHEADER_LENGTH + 1) * 12));
+		ft_memcpy(header + ft_strlen(header), text_line(filepath, ascii_art[1]), ((STDHEADER_LENGTH + 1) * 12));
+		ft_memcpy(header + ft_strlen(header), text_line("", ascii_art[2]), ((STDHEADER_LENGTH + 1) * 12));
 		tmp = (char *) ft_calloc(STDHEADER_LENGTH+1, sizeof(char));
 		if (tmp == NULL)
 			return (0);
 		sprintf(tmp, "By: %s <%s>", stdhd_user(), stdhd_mail());
-		sprintf(header, "%s%s", header, text_line(tmp, ascii_art[3]));
-		sprintf(header, "%s%s", header, text_line("", ascii_art[4]));
+		ft_memcpy(header + ft_strlen(header), text_line(tmp, ascii_art[3]), ((STDHEADER_LENGTH + 1) * 12));
+		ft_memcpy(header + ft_strlen(header), text_line("", ascii_art[4]), ((STDHEADER_LENGTH + 1) * 12));
 		sprintf(tmp, "Created: %s by %s", stdhd_tformat(), stdhd_user());
-		sprintf(header, "%s%s", header, text_line(tmp, ascii_art[5]));
+		ft_memcpy(header + ft_strlen(header), text_line(tmp, ascii_art[5]), ((STDHEADER_LENGTH + 1) * 12));
 		sprintf(tmp, "Updated: %s by %s", stdhd_tformat(), stdhd_user());
-		sprintf(header, "%s%s", header, text_line(tmp, ascii_art[6]));
-		sprintf(header, "%s%s", header, text_line("", ""));
-		sprintf(header, "%s%s\n", header, filled);
+		ft_memcpy(header + ft_strlen(header), text_line(tmp, ascii_art[6]), ((STDHEADER_LENGTH + 1) * 12));
+		ft_memcpy(header + ft_strlen(header), text_line("", ""), ((STDHEADER_LENGTH + 1) * 12));
+		ft_memcpy(header + ft_strlen(header), filled, ((STDHEADER_LENGTH + 1) * 12));
 		fseek(fpt, 0, SEEK_SET);
 		fseek(fp, 0, SEEK_SET);
 		fputs(header, fpt);

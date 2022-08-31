@@ -1,10 +1,10 @@
-# The Vogship v2 Turbo
+# The Vogship v2.1 Turbo
 The Vogship Tool allows you to navigate the vogsphere a lot more freely so you can focus on making and helping more.
 
 ```
      / /  |/| |
    / /__   / /
- /____  | | |/|  █  Vogship v2 Turbo p(0.0.5)
+ /____  | | |/|  █  Vogship v2.1 Turbo p(0.0.0)
       | |           Made By Developers for Developers
 ```
 

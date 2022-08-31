@@ -6,7 +6,7 @@
 #    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/08 23:46:33 by amenadue          #+#    #+#              #
-#    Updated: 2022/07/21 00:27:52 by amenadue         ###   ########.fr        #
+#    Updated: 2022/08/31 21:18:55 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ COMMANDS =	vogship \
 			clsyc \
 			genhead \
 			rsthead \
-			norm
+			norm 
 
 CC =		gcc
 
@@ -22,34 +22,34 @@ CCFLAGS =	-Wall -Werror -Wextra
 
 # OS Detection
 ifeq ($(OS),Windows_NT)
-    CCFLAGS += -D WIN32
+    CCFLAGS += -DWIN32
     ifeq ($(PROCESSOR_ARCHITEW6432),AMD64)
-        CCFLAGS += -D AMD64
+        CCFLAGS += -DAMD64
     else
         ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
-            CCFLAGS += -D AMD64
+            CCFLAGS += -DAMD64
         endif
         ifeq ($(PROCESSOR_ARCHITECTURE),x86)
-            CCFLAGS += -D IA32
+            CCFLAGS += -DIA32
         endif
     endif
 else
     UNAME_S := $(shell uname -s)
     ifeq ($(UNAME_S),Linux)
-        CCFLAGS += -D LINUX
+        CCFLAGS += -DLINUX
     endif
     ifeq ($(UNAME_S),Darwin)
-        CCFLAGS += -D OSX
+        CCFLAGS += -DOSX
     endif
     UNAME_P := $(shell uname -p)
     ifeq ($(UNAME_P),x86_64)
-        CCFLAGS += -D AMD64
+        CCFLAGS += -DAMD64
     endif
     ifneq ($(filter %86,$(UNAME_P)),)
-        CCFLAGS += -D IA32
+        CCFLAGS += -DIA32
     endif
     ifneq ($(filter arm%,$(UNAME_P)),)
-        CCFLAGS += -D ARM
+        CCFLAGS += -DARM
     endif
 endif
 
@@ -69,7 +69,7 @@ all:
 	@printf "Compiling...\n"
 	@$(MAKE) -s rocket2
 	@printf "   \e[31m()\e[0m\n\n"
-	@$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c -Llibvg -lvg -Llibft -lft -o ~/.vogship/bin/$(COMMAND) || $(MAKE) -s error;)
+	@$(foreach COMMAND,$(COMMANDS), gcc $(CCFLAGS) cmds/$(COMMAND).c -Llibvg -lvg -Llibft -lft -o ~/.vogship/bin/$(COMMAND) || $(MAKE) -s error;)
 	@$(MAKE) -s rocket1
 	@printf "Registering Commands...\n"
 	@$(MAKE) -s rocket2
@@ -90,7 +90,7 @@ verbose:
 	mkdir ~/.vogship/bin  || $(MAKE) -s error
 	$(MAKE) verbose -C libft || $(MAKE) -s error
 	$(MAKE) verbose -C libvg || $(MAKE) -s error
-	$(foreach COMMAND,$(COMMANDS), gcc cmds/$(COMMAND).c -Llibvg -lvg -Llibft -lft -g3 -o ~/.vogship/bin/$(COMMAND) || $(MAKE) -s error;) 
+	$(foreach COMMAND,$(COMMANDS), gcc $(CCFLAGS) cmds/$(COMMAND).c -Llibvg -lvg -Llibft -lft -g3 -o ~/.vogship/bin/$(COMMAND) || $(MAKE) -s error;) 
 	cp -r man ~/.vogship/ || $(MAKE) error
 	cp shell/vogship.sh ~/.vogship/vogship.sh || $(MAKE) error
 	$(if $(shell grep "source ~\/\.vogship\/vogship\.sh" ~/.bashrc),,printf "source ~/.vogship/vogship.sh" >> ~/.bashrc)

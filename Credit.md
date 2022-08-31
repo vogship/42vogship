@@ -1,33 +1,12 @@
 # Authors
 - Aaron Menadue (Lead Developer)
-  - amenadue
-  - IsCoffeeTho#0001
-  - [iscoffee.learning@gmail.com](mailto:iscoffee.learning@gmail.com)
-- Tomas Turner (Contribution and Debugging)
-  - tturner
-  - TomT#1016
-  - [tturner@student.42adel.org.au](mailto:tturner@student.42adel.org.au)
-- James Otta (Contricution and Debugging)
-  - jotta
-  - Zoc#7527
-  - [jotta@student.42adel.org.au](mailto:jotta@student.42adel.org.au)
-- Byron Hawksmith (QA)
-  - bhawksmi
-  - Titan#4990
-  - [bhawksmi@student.42adel.org.au](mailto:bhawksmi@student.42adel.org.au)
-- Jaymie Gobbett (QA)
-  - jgobbett
-  - JayJay#2913
-  - [jgobbett@student.42adel.org.au](mailto:jgobbett@student.42adel.org.au)
-- Pasquale Rossi (QA)
-  - prossi
-  - Pasquale Rossi#3642
-  - [pasqualerossi919@gmail.com](mailto:pasqualerossi919@gmail.com)
-- Coby J. Morris (QA)
-  - cmorris
-  - CJ\_M#8852
-  - [cobym2012@gmail.com](mailto:cobym2012@gmail.com)
+- Tomas Turner (Contributor and Debugging)
+- James Otta (Contributor and Debugging)
 - Hope Lucas (Documentation)
-  - hlucas
-  - hopeisnotbread#6574
-  - [hlucas@student.42adel.org.au](mailto:hlucas@student.42adel.org.au)
+- [ombhd](https://github.com/ombhd) (External Resource)
+
+# Quality Assurers
+- Byron Hawksmith
+- Jaymie Gobbett
+- Pasquale Rossi
+- Coby J. Morris

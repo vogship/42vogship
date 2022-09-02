@@ -6,7 +6,7 @@
 #    By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/08 23:46:33 by amenadue          #+#    #+#              #
-#    Updated: 2022/08/31 21:31:17 by amenadue         ###   ########.fr        #
+#    Updated: 2022/09/02 17:31:17 by amenadue         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,7 +82,7 @@ all:
 	@$(MAKE) -s rocket1
 	@printf "Installed!\n"
 	@$(MAKE) -s rocket2
-	@printf "  \e[93m|\e[91m)(\e[93m|\e[0m\n   \e[93m||\e[0m\n"
+	@printf "  \e[93m|\e[91m)(\e[93m|\e[0m\n   \e[93m||\e[0m\n\n"
 
 verbose:
 	-rm -rf ~/.vogship

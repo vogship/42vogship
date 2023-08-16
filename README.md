@@ -1,10 +1,10 @@
-# The Vogship v2.1 Turbo
+# The Vogship v2.1.1 Turbo
 The Vogship Tool allows you to navigate the vogsphere a lot more freely so you can focus on making and helping more.
 
 ```
      / /  |/| |
    / /__   / /
- /____  | | |/|  █  Vogship v2.1 Turbo p(0.0.0)
+ /____  | | |/|  █  Vogship v2.1.1 Turbo
       | |           Made By Developers for Developers
 ```
 
@@ -13,10 +13,6 @@ The Vogship Tool allows you to navigate the vogsphere a lot more freely so you c
 - [Norminette](https://github.com/42School/norminette "42 Norminette")
 
 ### Installing
-#### Using vspm:
-```sh
-vspm -i vogship
-```
 #### Without vspm:
 One Liner:  
 ```sh

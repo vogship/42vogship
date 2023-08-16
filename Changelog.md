@@ -5,6 +5,10 @@
  /____  | | |/|  █  Vogship
       | |                      Made By Developers for Developers
 ```
+## Changelog v2.1.1
+- Fixed more compilation warnings.
+- Changed headers in all files to custom header. see [Personal Coding Suite](https://marketplace.visualstudio.com/items?itemName=iscoffeetho.personalcodingsuite) 
+
 ## Changelog v2.1 Turbo p(0.0.0)
 - Added Preference System.
 - Improved `clsyc` to be MacOS exclusive and a prompt to the user for deep-cleaning.

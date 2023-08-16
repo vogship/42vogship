@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/* ========================================================================== */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   vogship.h                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/09 17:35:19 by coffee            #+#    #+#             */
-/*   Updated: 2022/08/31 21:41:41 by amenadue         ###   ########.fr       */
+/*                                                             /   /   \      */
+/*   Made By IsCoffeeTho (Aaron Menadue)                     /    |      \    */
+/*                                                          |     |       |   */
+/*   vogship.h                                              |      \      |   */
+/*                                                          |       |     |   */
+/*   Last Edited: 08:23AM 17/08/2023                         \      |    /    */
+/*                                                             \   /   /      */
 /*                                                                            */
-/* ************************************************************************** */
+/* ========================================================================== */
 
 #ifndef VOGSHIP_H
 # define VOGSHIP_H
@@ -17,8 +17,8 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-# define VG_VER "v2.1 Turbo p(0.0.0)"
-# define VG_AUTHOR "Aaron Menadue"
+# define VG_VER "2.1.1"
+# define VG_AUTHOR "IsCoffeeTho"
 
 # define VG_PREFERENCE_FILE "~/.vg_prefs.ini"
 # define VG_TMP_PREF_FILE "~/.tmp_vg_prefs.ini"

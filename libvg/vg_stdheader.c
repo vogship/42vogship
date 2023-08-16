@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/* ========================================================================== */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   vg_stdheader.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: amenadue <amenadue@student.42adel.org.a    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 14:58:39 by coffee            #+#    #+#             */
-/*   Updated: 2022/08/31 21:55:47 by amenadue         ###   ########.fr       */
+/*                                                             /   /   \      */
+/*   Made By IsCoffeeTho (Aaron Menadue)                     /    |      \    */
+/*                                                          |     |       |   */
+/*   vg_stdheader.c                                         |      \      |   */
+/*                                                          |       |     |   */
+/*   Last Edited: 08:22AM 17/08/2023                         \      |    /    */
+/*                                                             \   /   /      */
 /*                                                                            */
-/* ************************************************************************** */
+/* ========================================================================== */
 
 #include "vogship.h"
 #include <unistd.h>
@@ -149,7 +149,7 @@ int		vg_stdheader(t_str filepath)
 	fstat(fd, &fst);
 	if (!fd)
 	{
-		write(2, "An error occured when opening files.\n", 39);
+		write(2, "An error occured when opening files.\n", 37);
 		return (0);
 	}
 
@@ -172,7 +172,7 @@ int		vg_stdheader(t_str filepath)
 		tfd = open("vogshipstdheader", O_CREAT | O_RDWR, 0777);
 		if (!tfd)
 		{
-			write(2, "An error occured when opening files.\n", 39);
+			write(2, "An error occured when opening files.\n", 37);
 			return (0);
 		}
 
